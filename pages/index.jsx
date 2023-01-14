@@ -1,28 +1,12 @@
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import axios from 'axios';
+import Link from 'next/link';
 import styled from 'styled-components';
 
-const Home = () => {
-    const [posts, setPosts] = useState({});
-
-    useEffect(() => {
-        const getPosts = async () => {
-            try {
-                const { data } = await axios.get('posts');
-                setPosts(data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getPosts();
-    }, []);
-
-    return Object.values(posts).length ? (
+const Home = ({ success, data: posts }) => {
+    return success ? (
         <S.Container>
-            {Object.values(posts).map((post) => (
-                <S.Post key={post._id} href={`posts/${post._id}`}>
+            {posts.map((post) => (
+                <S.Post key={post.slug} href={`posts/${post.slug}`}>
                     <h1>{post.title}</h1>
                     <p>{post.description}</p>
                 </S.Post>
@@ -34,6 +18,14 @@ const Home = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+    const { data } = await axios.get('posts');
+
+    return {
+        props: data,
+    };
+}
 
 const S = {};
 S.Container = styled.div`

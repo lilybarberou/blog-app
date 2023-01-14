@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import { getFormData } from '../contexts/Utils';
 
@@ -7,29 +8,26 @@ const Home = () => {
         e.preventDefault();
 
         const data = getFormData('#form');
-        const posted = await axios.post('create', data);
-        console.log(posted);
+        const { data: res } = await axios.post('posts', data);
+
+        toast(res.message, { type: res.success ? 'success' : 'error' });
     };
 
     return (
         <S.Container id='form'>
             <h1>Créer un post</h1>
             <S.InputContainer>
-                <label>Titre</label>
-                <S.InputText type='text' name='title' />
-            </S.InputContainer>
-            <S.InputContainer>
-                <label>Description</label>
-                <S.Textarea height='70px' name='description' />
+                <label>Slug (mon-titre)</label>
+                <S.InputText type='text' name='slug' />
             </S.InputContainer>
             <S.InputContainer>
                 <label>Contenu</label>
-                <S.Textarea name='content' />
+                <S.Textarea name='code' />
             </S.InputContainer>
-            <S.InputContainer>
+            {/* <S.InputContainer>
                 <label>Catégories</label>
                 <S.InputText type='text' name='categories' />
-            </S.InputContainer>
+            </S.InputContainer> */}
             <S.InputContainer>
                 <label>Mot de passe</label>
                 <S.InputText type='password' name='password' />

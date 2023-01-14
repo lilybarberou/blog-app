@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_API_URL}/api/`;
+axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_API_URL}/`;
 
 function MyApp({ Component, pageProps }) {
     return (
         <ThemeProvider theme={globalTheme}>
+            <ToastContainer />
             <Component {...pageProps} />
             <GlobalStyle />
         </ThemeProvider>

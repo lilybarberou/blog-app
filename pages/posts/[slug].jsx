@@ -1,12 +1,11 @@
 import axios from 'axios';
 import styled from 'styled-components';
-import { bundleMDX } from 'mdx-bundler';
 import PostLayout from '../../components/PostLayout';
 
-const Post = ({ code, data }) => {
-    return code ? (
+const Post = ({ success, data: post }) => {
+    return post ? (
         <S.Container>
-            <PostLayout code={code} data={data} />
+            <PostLayout code={post.code} data={post.data} />
         </S.Container>
     ) : (
         <p>Loading</p>
@@ -16,24 +15,11 @@ const Post = ({ code, data }) => {
 export default Post;
 
 export async function getStaticProps(context) {
-    try {
-        const id = context.params.id;
-        const { data } = await axios.get(`posts/${id}`);
-        const result = await bundleMDX({
-            source: data.content,
-            cwd: process.cwd(),
-        });
+    const { data } = await axios.get(`posts/${context.params.slug}`);
 
-        return {
-            props: {
-                code: result.code,
-                data,
-            },
-        };
-    } catch (err) {
-        console.log(err);
-        return { props: {} };
-    }
+    return {
+        props: data,
+    };
 }
 
 export const getStaticPaths = async () => {

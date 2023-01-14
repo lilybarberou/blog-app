@@ -4,8 +4,8 @@ import { monokai } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 const CodeBlock = (props) => {
     const { children, filename } = props;
-    console.log(children);
-    console.log(children.props.children);
+    // console.log(children);
+    // console.log(children.props.children);
 
     return (
         <S.Container>

@@ -6,7 +6,7 @@ import Button from './Button';
 import CodeBlock from './CodeBlock';
 
 const PostLayout = ({ code, data = {} }) => {
-    const { title, date, categories } = data;
+    const { title, date, description, slug } = data;
 
     const formatDate = (date) => {
         return new Date(date).toLocaleDateString('fr-FR', {
