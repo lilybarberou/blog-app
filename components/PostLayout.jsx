@@ -5,7 +5,7 @@ import Header from './Header';
 import Button from './Button';
 import CodeBlock from './CodeBlock';
 
-const PostLayout = ({ code, data = {} }) => {
+const PostLayout = ({ code = '', data = {} }) => {
     const { title, date, description, slug } = data;
 
     const formatDate = (date) => {

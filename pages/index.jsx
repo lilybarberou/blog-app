@@ -1,9 +1,24 @@
-import axios from 'axios';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import axios from 'axios';
 import styled from 'styled-components';
 
-const Home = ({ success, data: posts }) => {
-    return success ? (
+const Home = () => {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const getPosts = async () => {
+            const { data } = await axios.get('posts');
+
+            if (data.success) {
+                setPosts(data.data);
+            }
+        };
+
+        getPosts();
+    }, []);
+
+    return posts ? (
         <S.Container>
             {posts.map((post) => (
                 <S.Post key={post.slug} href={`posts/${post.slug}`}>
@@ -18,14 +33,6 @@ const Home = ({ success, data: posts }) => {
 };
 
 export default Home;
-
-export async function getStaticProps() {
-    const { data } = await axios.get('posts');
-
-    return {
-        props: data,
-    };
-}
 
 const S = {};
 S.Container = styled.div`
