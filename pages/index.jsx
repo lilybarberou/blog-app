@@ -47,7 +47,7 @@ const Home = () => {
                             </div>
                             <div>
                                 <p>{post.description}</p>
-                                <span className='more'>Lire la suite -></span>
+                                <span className='more'>Lire la suite -&gt;</span>
                             </div>
                         </S.Post>
                     ))}
@@ -69,7 +69,7 @@ const Home = () => {
                             </div>
                             <div>
                                 <p>{post.description}</p>
-                                <span className='more'>Lire la suite -></span>
+                                <span className='more'>Lire la suite -&gt;</span>
                             </div>
                         </S.Post>
                     ))}
