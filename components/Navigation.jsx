@@ -32,7 +32,7 @@ S.Container = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 `;
 
 S.Logo = styled(Link)`
@@ -44,6 +44,25 @@ S.Logo = styled(Link)`
 S.Links = styled.div`
     display: flex;
     gap: 40px;
+
+    & > a {
+        position: relative;
+        padding: 2px 10px;
+
+        &:hover::after {
+            width: 100%;
+        }
+        &::after {
+            transition: 0.3s;
+            width: 0;
+            background: ${({ theme }) => theme.primary};
+            height: 100%;
+            content: '';
+            position: absolute;
+            left: 0;
+            z-index: -1;
+        }
+    }
 `;
 
 S.CategoryLabel = styled.div`

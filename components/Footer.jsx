@@ -41,9 +41,7 @@ S.Container = styled.div`
     justify-content: center;
     border-top: ${({ theme }) => theme.border};
     padding: 40px 0;
-    position: absolute;
     width: 100%;
-    bottom: 0;
 `;
 
 S.Content = styled.div`
@@ -64,6 +62,7 @@ S.LeftContent = styled.div`
 
     & > span:last-child {
         margin-top: auto;
+        font-size: 13px;
     }
 `;
 

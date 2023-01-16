@@ -33,7 +33,7 @@ const globalTheme = {
 const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Source Code Pro', monospace;
-        padding-top: 20px;
+        padding-top: 25px;
         background: ${({ theme }) => theme.background};
         color: white;
     }
