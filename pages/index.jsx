@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
 import styled from 'styled-components';
+import PostCard from '../components/PostCard';
 
 const Home = () => {
     const [posts, setPosts] = useState([]);
@@ -33,45 +34,13 @@ const Home = () => {
                 <h2>Les late.</h2>
                 <S.Posts>
                     {posts.map((post) => (
-                        <S.Post key={post.slug} href={`posts/${post.slug}`}>
-                            <div>
-                                <S.PostCategories>
-                                    {post.categories.map((cat) => (
-                                        <S.PostCategory color={categories[cat]} key={cat}>
-                                            {cat}
-                                        </S.PostCategory>
-                                    ))}
-                                </S.PostCategories>
-                                <span className='date'>{post.date}</span>
-                                <span className='title'>{post.title}</span>
-                            </div>
-                            <div>
-                                <p>{post.description}</p>
-                                <span className='more'>Lire la suite -&gt;</span>
-                            </div>
-                        </S.Post>
+                        <PostCard key={post.slug} post={post} />
                     ))}
                 </S.Posts>
                 <h2>Les famous.</h2>
                 <S.Posts>
                     {posts.map((post) => (
-                        <S.Post key={post.slug} href={`posts/${post.slug}`}>
-                            <div>
-                                <S.PostCategories>
-                                    {post.categories.map((cat) => (
-                                        <S.PostCategory color={categories[cat]} key={cat}>
-                                            {cat}
-                                        </S.PostCategory>
-                                    ))}
-                                </S.PostCategories>
-                                <span className='date'>{post.date}</span>
-                                <span className='title'>{post.title}</span>
-                            </div>
-                            <div>
-                                <p>{post.description}</p>
-                                <span className='more'>Lire la suite -&gt;</span>
-                            </div>
-                        </S.Post>
+                        <PostCard key={post.slug} post={post} />
                     ))}
                 </S.Posts>
             </S.LeftContent>
@@ -113,66 +82,13 @@ S.LeftContent = styled.div`
 S.RightContent = styled.div`
     display: flex;
     flex-direction: column;
+    margin-left: auto;
 `;
 
 S.Posts = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 100px;
-`;
-
-S.Post = styled(Link)`
-    padding: 15px;
-    height: 200px;
-    width: 200px;
-    border: ${({ theme }) => theme.border};
-    overflow: hidden;
-
-    & > div {
-        display: flex;
-        flex-direction: column;
-        transition: 0.3s;
-        height: 100%;
-
-        &:first-child {
-            margin-bottom: 15px;
-        }
-    }
-    &:hover > div {
-        transform: translateY(calc(-100% - 15px));
-    }
-    & .date {
-        font-size: 13px;
-        color: #787878;
-    }
-    & .title {
-        margin-top: 20px;
-        align-self: center;
-        font-size: 20px;
-        text-align: center;
-    }
-    & p {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 8;
-        -webkit-box-orient: vertical;
-    }
-    & .more {
-        align-self: flex-end;
-        margin-top: auto;
-        font-size: 15px;
-        color: ${({ theme }) => theme.primary};
-    }
-`;
-
-S.PostCategories = styled.div`
-    display: flex;
-    gap: 10px;
-`;
-
-S.PostCategory = styled.span`
-    font-size: 15px;
-    color: ${({ color }) => color};
 `;
 
 S.Categories = styled.div`

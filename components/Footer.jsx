@@ -1,8 +1,12 @@
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 import styled from 'styled-components';
 
 const Footer = () => {
-    const copyDiscord = () => {};
+    const copyDiscord = () => {
+        navigator.clipboard.writeText('Lily.#7476');
+        toast.success('Pseudo discord copié');
+    };
 
     return (
         <S.Container>
@@ -23,8 +27,12 @@ const Footer = () => {
                     <S.Column>
                         <span>Des liens</span>
                         <Link href='mailto:lily.barberou@gmail.com'>Contact</Link>
-                        <span onClick={copyDiscord}>Discord</span>
-                        <Link href='https://github.com/Nahay'>Github</Link>
+                        <span className='discord' onClick={copyDiscord}>
+                            Discord
+                        </span>
+                        <Link target='_blank' rel='noopener noreferrer' href='https://github.com/Nahay'>
+                            Github
+                        </Link>
                         <Link href=''>Term</Link>
                     </S.Column>
                 </S.RightContent>
@@ -86,5 +94,8 @@ S.Column = styled.div`
         color: ${({ theme }) => theme.primary};
         font-size: 16px;
         margin-bottom: 10px;
+    }
+    & .discord {
+        cursor: pointer;
     }
 `;

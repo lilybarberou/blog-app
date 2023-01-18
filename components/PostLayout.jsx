@@ -8,19 +8,11 @@ import CodeBlock from './CodeBlock';
 const PostLayout = ({ code = '', data = {} }) => {
     const { title, date, description, slug } = data;
 
-    const formatDate = (date) => {
-        return new Date(date).toLocaleDateString('fr-FR', {
-            year: 'numeric',
-            month: 'numeric',
-            day: 'numeric',
-        });
-    };
-
     const PostContent = useMemo(() => getMDXComponent(code), [code]);
 
     return (
         <S.Container>
-            {Boolean(Object.values(data).length) && <Header title={title} date={formatDate(date)} />}
+            {Boolean(Object.values(data).length) && <Header title={title} date={date} />}
             <section>
                 <PostContent components={{ Button, CodeBlock }} />
             </section>
