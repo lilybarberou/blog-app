@@ -14,7 +14,7 @@ const Footer = () => {
                 <S.LeftContent>
                     <S.Logo>Lily Dev</S.Logo>
                     <span>Merci de me lire !</span>
-                    <span>@2023-present Lily Barberou. All Rights Reserved</span>
+                    <span>@{new Date().getFullYear()}-present Lily Barberou. All Rights Reserved</span>
                 </S.LeftContent>
                 <S.RightContent>
                     <S.Column>

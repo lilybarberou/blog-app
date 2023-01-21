@@ -29,4 +29,5 @@ S.Container = styled.article`
     gap: 10px;
     padding: 10px;
     padding: 10px;
+    max-width: 500px;
 `;

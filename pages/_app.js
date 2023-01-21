@@ -26,6 +26,7 @@ export default MyApp;
 const globalTheme = {
     background: '#25262C',
     primary: '#C64141',
+    secondary: '#c5a186',
     grey: '#787878',
     border: '1px solid #8D8D8D',
 };
@@ -36,6 +37,15 @@ const GlobalStyle = createGlobalStyle`
         padding-top: 25px;
         background: ${({ theme }) => theme.background};
         color: white;
+    }
+
+    p {
+        /* font-family: 'Poppins', sans-serif; */
+    }
+
+    *::selection {
+        color: #fff;
+        background-color: ${({ theme }) => theme.primary};
     }
 
     * {

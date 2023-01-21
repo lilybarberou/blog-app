@@ -3,6 +3,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import styled from 'styled-components';
 import PostCard from '../components/PostCard';
+import categories from '../contexts/categories.json';
 
 const Home = () => {
     const [posts, setPosts] = useState([]);
@@ -18,15 +19,6 @@ const Home = () => {
 
         getPosts();
     }, []);
-
-    const categories = {
-        HTML: '#a4352e',
-        CSS: '#2876AF',
-        JS: '#c2cd4f',
-        REACT: '',
-        NEXTJS: '',
-        NODEJS: '',
-    };
 
     return posts ? (
         <S.Container>
@@ -48,7 +40,7 @@ const Home = () => {
                 <h2>Les catégories.</h2>
                 <S.Categories>
                     {Object.keys(categories).map((cat) => (
-                        <Link key={cat} href={`posts/`}>
+                        <Link key={cat} href={`posts/category/${cat.toLowerCase()}`}>
                             {cat}
                         </Link>
                     ))}

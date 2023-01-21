@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import categories from '../contexts/categories.json';
 
 const Navigation = () => {
     return (
@@ -12,11 +13,9 @@ const Navigation = () => {
                     <span className='arrow'></span>
                     <S.CategoriesContainer>
                         <S.Categories>
-                            <Link href=''>Html</Link>
-                            <Link href=''>Css</Link>
-                            <Link href=''>Javascript</Link>
-                            <Link href=''>React</Link>
-                            <Link href=''>Next.js</Link>
+                            {Object.keys(categories).map(cat => (
+                                <Link  key={cat} href={`/posts/category/${cat.toLowerCase()}`}>{cat.toLowerCase()}</Link>
+                            ))}
                         </S.Categories>
                     </S.CategoriesContainer>
                 </S.CategoryLabel>
@@ -110,6 +109,7 @@ S.Categories = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    text-transform: capitalize;
 `;
 
 S.Search = styled.div`

@@ -1,17 +1,15 @@
 import styled from 'styled-components';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { monokai } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import darcula from 'react-syntax-highlighter/dist/cjs/styles/prism/darcula';
 
 const CodeBlock = (props) => {
-    const { children, filename } = props;
-    // console.log(children);
-    // console.log(children.props.children);
+    const { filename, code } = props;
 
     return (
         <S.Container>
             {filename && <span>{filename}</span>}
-            <SyntaxHighlighter language='javascript' style={monokai} wrapLongLines={true}>
-                {children.props.children}
+            <SyntaxHighlighter language='jsx' style={darcula} wrapLongLines={true}>
+                {code}
             </SyntaxHighlighter>
         </S.Container>
     );
@@ -34,5 +32,11 @@ S.Container = styled.div`
         font-size: 14px;
         width: fit-content;
         border-radius: 5px 5px 0 0;
+    }
+
+    & code {
+        background: unset !important;
+        padding: unset !important;
+        border-radius: unset;
     }
 `;
