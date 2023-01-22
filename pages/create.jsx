@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import { getFormData } from '../contexts/Utils';
@@ -15,6 +16,9 @@ const Home = () => {
 
     return (
         <S.Container id='form'>
+            <Head>
+                <title>Créer un post</title>
+            </Head>
             <h1>Créer un post</h1>
             <S.InputContainer>
                 <label>Slug (mon-titre)</label>

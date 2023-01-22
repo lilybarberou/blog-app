@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import PostCard from '../../components/PostCard';
+import Head from 'next/head';
 
 const Late = () => {
     const [posts, setPosts] = useState([]);
@@ -24,12 +25,15 @@ const Late = () => {
 
     return posts ? (
         <S.Container>
-                <h1>Les late.</h1>
-                <S.Posts>
-                    {posts.map((post) => (
-                        <PostCard key={post.slug} post={post} />
-                    ))}
-                </S.Posts>
+            <Head>
+                <title>Les late | Lily Dev</title>
+            </Head>
+            <h1>Les late.</h1>
+            <S.Posts>
+                {posts.map((post) => (
+                    <PostCard key={post.slug} post={post} />
+                ))}
+            </S.Posts>
         </S.Container>
     ) : (
         <p>Loading</p>

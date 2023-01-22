@@ -7,6 +7,7 @@ import Header from '../../components/Header';
 import Button from '../../components/Button';
 import CodeBlock from '../../components/CodeBlock';
 import Callout from '../../components/Callout';
+import Head from 'next/head';
 
 const Post = () => {
     const router = useRouter();
@@ -28,6 +29,9 @@ const Post = () => {
 
     return Object.keys(post).length ? (
         <S.Container>
+            <Head>
+                <title>{post.data.title}</title>
+            </Head>
             {Boolean(Object.values(post.data).length) && <Header data={post.data} />}
             <S.Content>
                 <PostContent components={{ Button, CodeBlock, Callout }} />

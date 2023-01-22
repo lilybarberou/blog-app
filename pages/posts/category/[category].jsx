@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import styled from 'styled-components';
 import PostCard from '../../../components/PostCard';
+import Head from 'next/head';
+import categories from '../../../contexts/categories.json';
 
 const Home = () => {
     const router = useRouter();
@@ -23,7 +25,10 @@ const Home = () => {
 
     return router.isReady && posts ? (
         <S.Container>
-                <h1>{router.query.category.toUpperCase()}.</h1>
+            <Head>
+                <title>{categories[router.query.category.toUpperCase()].name} | Lily Dev</title>
+            </Head>
+                <h1>{categories[router.query.category.toUpperCase()].name}.</h1>
                 <S.Posts>
                     {posts.map((post) => (
                         <PostCard key={post.slug} post={post} />

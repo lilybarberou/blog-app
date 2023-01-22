@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import PostCard from '../components/PostCard';
 import categories from '../contexts/categories.json';
+import Head from 'next/head';
 
 const Home = () => {
     const [posts, setPosts] = useState([]);
@@ -22,6 +23,9 @@ const Home = () => {
 
     return posts ? (
         <S.Container>
+            <Head>
+                <title>Lily Dev</title>
+            </Head>
             <S.LeftContent>
                 <h2>Les late.</h2>
                 <S.Posts>
