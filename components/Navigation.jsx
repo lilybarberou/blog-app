@@ -13,8 +13,8 @@ const Navigation = () => {
                     <span className='arrow'></span>
                     <S.CategoriesContainer>
                         <S.Categories>
-                            {Object.keys(categories).map(cat => (
-                                <Link  key={cat} href={`/posts/category/${cat.toLowerCase()}`}>{cat.toLowerCase()}</Link>
+                            {Object.entries(categories).map(([key, value]) => (
+                                <Link  key={key} href={`/posts/category/${key.toLowerCase()}`}>{value.name}</Link>
                             ))}
                         </S.Categories>
                     </S.CategoriesContainer>
@@ -102,14 +102,32 @@ S.CategoriesContainer = styled.div`
 
 S.Categories = styled.div`
     background: #ffffff24;
-    width: 200px;
-    height: 80px;
+    gap: 4px 0;
     padding: 10px;
     border: ${({ theme }) => theme.border};
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    text-transform: capitalize;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 40px;
+
+    & > a {
+        position: relative;
+        padding: 2px 5px;
+        width: fit-content;
+
+        &:hover::after {
+            width: 100%;
+        }
+        &::after {
+            transition: 0.3s;
+            width: 0;
+            background: ${({ theme }) => theme.primary};
+            height: 100%;
+            content: '';
+            position: absolute;
+            left: 0;
+            z-index: -1;
+        }
+    }
 `;
 
 S.Search = styled.div`

@@ -10,7 +10,7 @@ const PostCard = (props) => {
             <div>
                 <S.PostCategories>
                     {post.categories.map((cat) => (
-                        <S.PostCategory color={categories[cat]} key={cat}>
+                        <S.PostCategory color={categories[cat].color} key={cat}>
                             {cat}
                         </S.PostCategory>
                     ))}

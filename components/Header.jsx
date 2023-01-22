@@ -9,7 +9,7 @@ const Header = (props) => {
             <S.Subtitle>
                 <span className='date'>{data.date}</span>
                 {data.categories.map((cat) => (
-                        <S.Category color={categories[cat]} key={cat}>
+                        <S.Category color={categories[cat].color} key={cat}>
                             {cat}
                         </S.Category>
                     ))}
