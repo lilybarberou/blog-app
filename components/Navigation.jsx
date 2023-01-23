@@ -223,13 +223,15 @@ S.MobileMenu = styled.div`
 `;
 
 S.MobileMenuContent = styled.div`
-    display: none;
+    display: flex;
     flex-direction: column;
     background: ${({ theme }) => theme.background};
     z-index: 100;
     position: fixed;
     inset: 0;
     padding: 15px 20px;
+    transform: translateY(-100%);
+    transition: 0.3s;
 
     & > span {
         color: ${({ theme }) => theme.primary};
@@ -244,7 +246,7 @@ S.MobileMenuContent = styled.div`
     }
 
     &.active {
-        display: flex;
+        transform: translateY(0%);
     }
 `;
 
