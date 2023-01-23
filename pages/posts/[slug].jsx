@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import { getMDXComponent } from 'mdx-bundler/client';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -7,21 +8,20 @@ import Header from '../../components/Header';
 import Button from '../../components/Button';
 import CodeBlock from '../../components/CodeBlock';
 import Callout from '../../components/Callout';
-import Head from 'next/head';
 
 const Post = () => {
     const router = useRouter();
-    const [post, setPost] = useState({});
+    const [post, setPost] = useState({ loading: true });
 
     // reset state when pathname changes
     useEffect(() => {
-        setPost([]);
+        setPost({ loading: true });
     }, [router.query]);
 
     useEffect(() => {
         const getData = async () => {
             const { data } = await axios.get(`posts/${router.query.slug}`);
-            if (data) setPost(data.data);
+            setPost({ loading: false, ...data.data });
         };
 
         if (router.isReady) getData();
@@ -32,18 +32,26 @@ const Post = () => {
         return <div></div>;
     }, [post.code]);
 
-    return Object.keys(post).length ? (
+    return router.isReady && !post.loading ? (
         <S.Container>
             <Head>
-                <title>{post.data.title}</title>
+                <title>{post.meta?.title}</title>
             </Head>
-            {Boolean(Object.values(post.data).length) && <Header data={post.data} />}
-            <S.Content>
-                <PostContent components={{ Button, CodeBlock, Callout }} />
-            </S.Content>
+            {post.code ? (
+                <>
+                    {post.meta && <Header data={post.meta} />}
+                    {post.code && (
+                        <S.Content>
+                            <PostContent components={{ Button, CodeBlock, Callout }} />
+                        </S.Content>
+                    )}
+                </>
+            ) : (
+                <span>Ce post n&apos;existe pas</span>
+            )}
         </S.Container>
     ) : (
-        <p>Loading</p>
+        <span>Loading...</span>
     );
 };
 

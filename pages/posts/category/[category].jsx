@@ -1,19 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import axios from 'axios';
 import styled from 'styled-components';
 import PostCard from '../../../components/PostCard';
-import Head from 'next/head';
 import categories from '../../../contexts/categories.json';
 
-const Home = () => {
+const Category = () => {
     const router = useRouter();
-    const [posts, setPosts] = useState([]);
-    const loading = useRef(true);
+    const [posts, setPosts] = useState({ loading: true });
 
     // reset state when pathname changes
     useEffect(() => {
-        setPosts([]);
+        setPosts({ loading: true });
     }, [router.query]);
 
     useEffect(() => {
@@ -23,24 +22,21 @@ const Home = () => {
             };
 
             const { data } = await axios.get('posts', { params });
-            data.success && setPosts(data.data);
-            loading.current = false;
+            setPosts({ data: data.data || [], loading: false });
         };
 
         if (router.isReady) getPosts();
     }, [router]);
 
-    return router.isReady ? (
+    return router.isReady && !posts.loading ? (
         <S.Container>
             <Head>
                 <title>{categories[router.query.category.toUpperCase()].name} | Lily Dev</title>
             </Head>
             <h1>{categories[router.query.category.toUpperCase()].name}.</h1>
-            {loading.current ? (
-                <span>Loading...</span>
-            ) : posts.length ? (
+            {posts.data.length ? (
                 <S.Posts>
-                    {posts.map((post) => (
+                    {posts.data.map((post) => (
                         <PostCard key={post.slug} post={post} />
                     ))}
                 </S.Posts>
@@ -49,11 +45,11 @@ const Home = () => {
             )}
         </S.Container>
     ) : (
-        <p>Loading...</p>
+        <span>Loading...</span>
     );
 };
 
-export default Home;
+export default Category;
 
 const S = {};
 S.Container = styled.div`
