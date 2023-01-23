@@ -50,6 +50,11 @@ S.Container = styled.div`
     border-top: ${({ theme }) => theme.border};
     padding: 40px 0;
     width: 100%;
+    margin-top: 100px;
+
+    @media (max-width: 750px) {
+        margin-top: 70px;
+    }
 `;
 
 S.Content = styled.div`

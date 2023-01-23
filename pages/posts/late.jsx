@@ -10,10 +10,10 @@ const Late = () => {
     useEffect(() => {
         const getPosts = async () => {
             const params = {
-                limit: 20
-            }
+                limit: 20,
+            };
 
-            const { data } = await axios.get('posts', {params});
+            const { data } = await axios.get('posts', { params });
 
             if (data.success) {
                 setPosts(data.data);
@@ -57,5 +57,4 @@ S.Container = styled.div`
 S.Posts = styled.div`
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 100px;
 `;

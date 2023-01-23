@@ -61,12 +61,18 @@ export default Home;
 const S = {};
 S.Container = styled.div`
     display: flex;
+    gap: 20px;
 
     & h2 {
         color: ${({ theme }) => theme.primary};
         margin-bottom: 30px;
         font-size: 20px;
         white-space: nowrap;
+    }
+
+    @media (max-width: 750px) {
+        flex-direction: column;
+        gap: 0px;
     }
 `;
 
@@ -79,12 +85,28 @@ S.RightContent = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: auto;
+
+    @media (max-width: 750px) {
+        margin-left: unset;
+        width: fit-content;
+    }
 `;
 
 S.Posts = styled.div`
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 100px;
+
+    &:nth-child(2) {
+        margin-bottom: 70px;
+    }
+
+    @media (max-width: 750px) {
+        margin-bottom: 50px;
+
+        &:nth-child(2) {
+            margin-bottom: 50px;
+        }
+    }
 `;
 
 S.Categories = styled.div`
