@@ -13,19 +13,24 @@ const Post = () => {
     const router = useRouter();
     const [post, setPost] = useState({});
 
+    // reset state when pathname changes
+    useEffect(() => {
+        setPost([]);
+    }, [router.query]);
+
     useEffect(() => {
         const getData = async () => {
             const { data } = await axios.get(`posts/${router.query.slug}`);
-            if (data) setPost(data.data)
+            if (data) setPost(data.data);
         };
 
         if (router.isReady) getData();
     }, [router]);
-    
+
     const PostContent = useMemo(() => {
         if (post.code) return getMDXComponent(post.code);
-        return <div></div>
-    }, [post.code])
+        return <div></div>;
+    }, [post.code]);
 
     return Object.keys(post).length ? (
         <S.Container>
@@ -62,14 +67,16 @@ S.Content = styled.div`
     flex-direction: column;
     gap: 10px;
 
-    & p, ul, ol {
+    & p,
+    ul,
+    ol {
         font-size: 15px;
         font-weight: 300;
         line-height: 1.7;
     }
 
     & h2 {
-        color: ${({theme}) => theme.primary};
+        color: ${({ theme }) => theme.primary};
         font-size: 26px;
         margin: 20px 0 15px 0;
     }
@@ -107,7 +114,7 @@ S.Content = styled.div`
         &::before {
             position: absolute;
             left: 0;
-            content: "";
+            content: '';
             height: 100%;
             width: 5px;
             background: #7b7b7b;
@@ -118,7 +125,13 @@ S.Content = styled.div`
         text-underline-offset: 5px;
     }
 
-    & .red { color: #D85352 }
-    & .orange { color: #ffa446 }
-    & .yellow { color: #ffcb46 }
-`
+    & .red {
+        color: #d85352;
+    }
+    & .orange {
+        color: #ffa446;
+    }
+    & .yellow {
+        color: #ffcb46;
+    }
+`;
