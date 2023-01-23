@@ -37,6 +37,10 @@ const GlobalStyle = createGlobalStyle`
         padding-top: 25px;
         background: ${({ theme }) => theme.background};
         color: white;
+
+        @media (max-width: 750px) {
+            padding-top: 15px;
+        }
     }
 
     p {
@@ -78,4 +82,8 @@ S.Container = styled.div`
     max-width: 1100px;
     padding: 0 40px;
     margin: auto;
+
+    @media (max-width: 750px) {
+        padding: 0 20px;
+    }
 `;

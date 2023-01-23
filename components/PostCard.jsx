@@ -73,6 +73,25 @@ S.Container = styled(Link)`
         font-size: 14px;
         color: ${({ theme }) => theme.primary};
     }
+
+    @media (max-width: 750px) {
+        width: 100%;
+        height: fit-content;
+
+        & > div {
+            height: auto;
+        }
+        &:hover > div {
+            transform: unset;
+        }
+        & p {
+            font-weight: lighter;
+            -webkit-line-clamp: 3;
+        }
+        & .more {
+            margin-top: 20px;
+        }
+    }
 `;
 
 S.PostCategories = styled.div`

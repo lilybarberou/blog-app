@@ -54,18 +54,25 @@ S.Container = styled.div`
 
     @media (max-width: 750px) {
         margin-top: 70px;
+        padding: 20px 0;
     }
 `;
 
 S.Content = styled.div`
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 1100px;
     padding: 0 40px;
+    gap: 30px 20px;
 
     & > div {
         display: flex;
+    }
+
+    @media (max-width: 750px) {
+        padding: 0 20px;
     }
 `;
 
@@ -76,18 +83,28 @@ S.LeftContent = styled.div`
     & > span:last-child {
         margin-top: auto;
         font-size: 13px;
+
+        @media (max-width: 750px) {
+            font-size: 12px;
+            margin-top: 5px;
+        }
     }
 `;
 
 S.RightContent = styled.div`
     display: flex;
-    gap: 100px;
+    flex-wrap: wrap;
+    gap: 30px 100px;
 `;
 
 S.Logo = styled.span`
     color: ${({ theme }) => theme.primary};
     font-size: 24px;
     margin-bottom: 10px;
+
+    @media (max-width: 750px) {
+        font-size: 20px;
+    }
 `;
 
 S.Column = styled.div`
@@ -102,5 +119,9 @@ S.Column = styled.div`
     }
     & .discord {
         cursor: pointer;
+    }
+
+    @media (max-width: 750px) {
+        font-size: 15px;
     }
 `;

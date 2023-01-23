@@ -229,7 +229,7 @@ S.MobileMenuContent = styled.div`
     z-index: 100;
     position: fixed;
     inset: 0;
-    padding: 25px 40px;
+    padding: 15px 20px;
 
     & > span {
         color: ${({ theme }) => theme.primary};
@@ -240,7 +240,7 @@ S.MobileMenuContent = styled.div`
         font-size: 21px;
     }
     & > a {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
     &.active {
@@ -252,7 +252,7 @@ S.MobileMenuHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 75px;
+    margin-bottom: 60px;
 
     & a {
         font-size: 24px;
