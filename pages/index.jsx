@@ -12,6 +12,7 @@ const Home = () => {
     useEffect(() => {
         const getPosts = async () => {
             const params = {
+                limit: 8,
                 folder: 'posts',
             };
 
