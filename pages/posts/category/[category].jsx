@@ -19,9 +19,10 @@ const Category = () => {
         const getPosts = async () => {
             const params = {
                 category: router.query.category,
+                folder: 'posts',
             };
 
-            const { data } = await axios.get('posts', { params });
+            const { data } = await axios.get('files', { params });
             setPosts({ data: data.data || [], loading: false });
         };
 

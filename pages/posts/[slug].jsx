@@ -20,7 +20,11 @@ const Post = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios.get(`posts/${router.query.slug}`);
+            const params = {
+                folder: 'posts',
+            };
+
+            const { data } = await axios.get(`files/${router.query.slug}`, { params });
             setPost({ loading: false, ...data.data });
         };
 

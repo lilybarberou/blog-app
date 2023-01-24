@@ -9,7 +9,7 @@ const Home = () => {
         e.preventDefault();
 
         const data = getFormData('#form');
-        const { data: res } = await axios.post('posts', data);
+        const { data: res } = await axios.post('files', { ...data, folder: 'posts' });
 
         toast(res.message, { type: res.success ? 'success' : 'error' });
     };

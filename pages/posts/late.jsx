@@ -11,9 +11,10 @@ const Late = () => {
         const getPosts = async () => {
             const params = {
                 limit: 20,
+                folder: 'posts',
             };
 
-            const { data } = await axios.get('posts', { params });
+            const { data } = await axios.get('files', { params });
 
             if (data.success) {
                 setPosts(data.data);
@@ -36,7 +37,7 @@ const Late = () => {
             </S.Posts>
         </S.Container>
     ) : (
-        <p>Loading</p>
+        <p>Loading...</p>
     );
 };
 

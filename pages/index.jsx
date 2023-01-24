@@ -11,7 +11,11 @@ const Home = () => {
 
     useEffect(() => {
         const getPosts = async () => {
-            const { data } = await axios.get('posts');
+            const params = {
+                folder: 'posts',
+            };
+
+            const { data } = await axios.get('files', { params });
 
             if (data.success) {
                 setPosts(data.data);
