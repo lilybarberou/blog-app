@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import styled from 'styled-components';
-import PostCard from '@components/PostCard';
+import SnippetCard from '@components/SnippetCard';
 
 const Snippets = () => {
-    const [posts, setPosts] = useState([]);
+    const [snippets, setSnippets] = useState([]);
     const firstRender = useRef(true);
 
     useEffect(() => {
@@ -20,24 +20,24 @@ const Snippets = () => {
             const { data } = await axios.get('files', { params });
 
             if (data.success) {
-                setPosts(data.data);
+                setSnippets(data.data);
             }
         };
 
         firstRender.current && getSnippets();
     }, []);
 
-    return posts.length ? (
+    return snippets.length ? (
         <S.Container>
             <Head>
                 <title>Les snippets | Lily Dev</title>
             </Head>
             <h1>Les snippets.</h1>
-            <S.Posts>
-                {posts.map((post) => (
-                    <PostCard key={post.slug} post={post} />
+            <S.Snippets>
+                {snippets.map((snippet) => (
+                    <SnippetCard key={snippet.slug} snippet={snippet} />
                 ))}
-            </S.Posts>
+            </S.Snippets>
         </S.Container>
     ) : (
         <p>Loading...</p>
@@ -58,7 +58,7 @@ S.Container = styled.div`
     }
 `;
 
-S.Posts = styled.div`
-    display: flex;
-    flex-wrap: wrap;
+S.Snippets = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 `;
