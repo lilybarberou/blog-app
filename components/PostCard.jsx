@@ -31,8 +31,8 @@ export default PostCard;
 const S = {};
 S.Container = styled(Link)`
     padding: 15px;
-    height: 200px;
-    width: 200px;
+    height: 188px;
+    width: 188px;
     border: ${({ theme }) => theme.border};
     overflow: hidden;
 
