@@ -13,7 +13,7 @@ const Navigation = () => {
         <S.Container>
             <S.Logo href='/'>Lily Dev</S.Logo>
             <S.Links>
-                <Link href='/posts'>Les late</Link>
+                <Link href='/posts'>Les posts</Link>
                 <S.CategoryLabel>
                     <span>Catégories</span>
                     <span className='arrow'></span>
@@ -54,7 +54,7 @@ const Navigation = () => {
                         </S.Icon>
                     </S.MobileMenuHeader>
                     <Link onClick={handleMobileMenu} href='/posts'>
-                        Les late
+                        Les posts
                     </Link>
                     <span>Les catégories</span>
                     <S.MobileCategories>

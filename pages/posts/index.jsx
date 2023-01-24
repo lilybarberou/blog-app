@@ -30,9 +30,9 @@ const Posts = () => {
     return posts ? (
         <S.Container>
             <Head>
-                <title>Les late | Lily Dev</title>
+                <title>Les posts | Lily Dev</title>
             </Head>
-            <h1>Les late.</h1>
+            <h1>Les posts.</h1>
             <S.Posts>
                 {posts.map((post) => (
                     <PostCard key={post.slug} post={post} />
