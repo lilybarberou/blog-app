@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import categories from '../contexts/categories.json';
+import categories from '@contexts/categories.json';
 
 const PostCard = (props) => {
     const { post } = props;
@@ -9,7 +9,7 @@ const PostCard = (props) => {
         <S.Container href={`/posts/${post.slug}`}>
             <div>
                 <S.PostCategories>
-                    {post.categories.map((cat) => (
+                    {post.categories?.map((cat) => (
                         <S.PostCategory color={categories[cat].color} key={cat}>
                             {cat}
                         </S.PostCategory>

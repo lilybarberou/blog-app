@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import axios from 'axios';
 import styled from 'styled-components';
-import PostCard from '../components/PostCard';
-import categories from '../contexts/categories.json';
-import Head from 'next/head';
+import PostCard from '@components/PostCard';
+import categories from '@contexts/categories.json';
 
 const Home = () => {
     const [posts, setPosts] = useState([]);

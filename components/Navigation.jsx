@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import categories from '../contexts/categories.json';
+import categories from '@contexts/categories.json';
 
 const Navigation = () => {
     const handleMobileMenu = () => {
@@ -13,7 +13,7 @@ const Navigation = () => {
         <S.Container>
             <S.Logo href='/'>Lily Dev</S.Logo>
             <S.Links>
-                <Link href='/posts/late'>Les late</Link>
+                <Link href='/posts'>Les late</Link>
                 <S.CategoryLabel>
                     <span>Catégories</span>
                     <span className='arrow'></span>
@@ -27,6 +27,7 @@ const Navigation = () => {
                         </S.Categories>
                     </S.CategoriesContainer>
                 </S.CategoryLabel>
+                <Link href='/snippets'>Les snippets</Link>
             </S.Links>
             <S.Search>
                 <S.Icon>
@@ -52,7 +53,7 @@ const Navigation = () => {
                             </svg>
                         </S.Icon>
                     </S.MobileMenuHeader>
-                    <Link onClick={handleMobileMenu} href='/posts/late'>
+                    <Link onClick={handleMobileMenu} href='/posts'>
                         Les late
                     </Link>
                     <span>Les catégories</span>
@@ -63,6 +64,9 @@ const Navigation = () => {
                             </Link>
                         ))}
                     </S.MobileCategories>
+                    <Link onClick={handleMobileMenu} href='/snippets'>
+                        Les snippets
+                    </Link>
                 </S.MobileMenuContent>
             </S.MobileMenu>
         </S.Container>

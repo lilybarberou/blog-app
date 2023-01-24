@@ -4,10 +4,10 @@ import Head from 'next/head';
 import { getMDXComponent } from 'mdx-bundler/client';
 import axios from 'axios';
 import styled from 'styled-components';
-import Header from '../../components/Header';
-import Button from '../../components/Button';
-import CodeBlock from '../../components/CodeBlock';
-import Callout from '../../components/Callout';
+import Header from '@components/Header';
+import Button from '@components/Button';
+import CodeBlock from '@components/CodeBlock';
+import Callout from '@components/Callout';
 
 const Post = () => {
     const router = useRouter();

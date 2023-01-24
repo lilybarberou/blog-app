@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import axios from 'axios';
 import styled from 'styled-components';
-import PostCard from '../../../components/PostCard';
-import categories from '../../../contexts/categories.json';
+import PostCard from '@components/PostCard';
+import categories from '@contexts/categories.json';
 
 const Category = () => {
     const router = useRouter();

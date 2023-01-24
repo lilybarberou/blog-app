@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import styled from 'styled-components';
 import Header from './Header';
-import Button from './Button';
 import CodeBlock from './CodeBlock';
 
 const PostLayout = ({ code = '', data = {} }) => {
@@ -14,7 +13,7 @@ const PostLayout = ({ code = '', data = {} }) => {
         <S.Container>
             {Boolean(Object.values(data).length) && <Header title={title} date={date} />}
             <section>
-                <PostContent components={{ Button, CodeBlock }} />
+                <PostContent components={{ CodeBlock }} />
             </section>
         </S.Container>
     );

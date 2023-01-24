@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Head from 'next/head';
 import axios from 'axios';
 import styled from 'styled-components';
-import PostCard from '../../components/PostCard';
-import Head from 'next/head';
+import PostCard from '@components/PostCard';
 
-const Late = () => {
+const Posts = () => {
     const [posts, setPosts] = useState([]);
+    const firstRender = useRef(true);
 
     useEffect(() => {
         const getPosts = async () => {
+            firstRender.current = false;
+
             const params = {
                 limit: 20,
                 folder: 'posts',
@@ -21,7 +24,7 @@ const Late = () => {
             }
         };
 
-        getPosts();
+        firstRender && getPosts();
     }, []);
 
     return posts ? (
@@ -41,7 +44,7 @@ const Late = () => {
     );
 };
 
-export default Late;
+export default Posts;
 
 const S = {};
 S.Container = styled.div`

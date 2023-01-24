@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import categories from '../contexts/categories.json';
+import categories from '@contexts/categories.json';
 
 const Header = (props) => {
     const { data } = props;
@@ -9,10 +9,10 @@ const Header = (props) => {
             <S.Subtitle>
                 <span className='date'>{data.date}</span>
                 {data.categories.map((cat) => (
-                        <S.Category color={categories[cat].color} key={cat}>
-                            {cat}
-                        </S.Category>
-                    ))}
+                    <S.Category color={categories[cat].color} key={cat}>
+                        {cat}
+                    </S.Category>
+                ))}
             </S.Subtitle>
             <h1>{data.title}</h1>
         </S.Container>
@@ -26,12 +26,12 @@ S.Container = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    
+
     h1 {
         font-weight: 500;
         font-size: 40px;
         padding: 20px 0;
-        border-bottom: ${({theme}) => `4px solid ${theme.primary}`};
+        border-bottom: ${({ theme }) => `4px solid ${theme.primary}`};
     }
 `;
 
@@ -43,10 +43,10 @@ S.Subtitle = styled.div`
 
     & .date {
         margin-right: auto;
-        color: ${({theme}) => theme.primary};
+        color: ${({ theme }) => theme.primary};
     }
-`
+`;
 
 S.Category = styled.span`
     color: ${({ color }) => color};
-`
+`;

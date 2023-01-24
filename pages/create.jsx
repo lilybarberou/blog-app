@@ -2,7 +2,7 @@ import axios from 'axios';
 import Head from 'next/head';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
-import { getFormData } from '../contexts/Utils';
+import { getFormData } from '@contexts/Utils';
 
 const Home = () => {
     const handleSubmit = async (e) => {

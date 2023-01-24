@@ -2,8 +2,8 @@ import axios from 'axios';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
+import Navigation from '@components/Navigation';
+import Footer from '@components/Footer';
 
 axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_API_URL}/`;
 
