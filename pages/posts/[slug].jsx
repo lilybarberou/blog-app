@@ -5,7 +5,6 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import axios from 'axios';
 import styled from 'styled-components';
 import Header from '@components/Header';
-import Button from '@components/Button';
 import CodeBlock from '@components/CodeBlock';
 import Callout from '@components/Callout';
 
@@ -46,7 +45,7 @@ const Post = () => {
                     {post.meta && <Header data={post.meta} />}
                     {post.code && (
                         <S.Content>
-                            <PostContent components={{ Button, CodeBlock, Callout }} />
+                            <PostContent components={{ CodeBlock, Callout }} />
                         </S.Content>
                     )}
                 </>
