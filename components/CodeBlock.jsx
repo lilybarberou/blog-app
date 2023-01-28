@@ -8,7 +8,7 @@ const CodeBlock = (props) => {
     return (
         <S.Container>
             {filename && <span>{filename}</span>}
-            <SyntaxHighlighter language='jsx' style={darcula} wrapLongLines={true}>
+            <SyntaxHighlighter language='jsx' style={darcula}>
                 {code}
             </SyntaxHighlighter>
         </S.Container>
@@ -38,5 +38,15 @@ S.Container = styled.div`
         background: unset !important;
         padding: unset !important;
         border-radius: unset;
+    }
+
+    & pre {
+        margin: 0 !important;
+    }
+
+    @media (max-width: 1100px) {
+        & code {
+            font-size: 12px;
+        }
     }
 `;

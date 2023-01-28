@@ -1,20 +1,22 @@
 import styled from 'styled-components';
 
 const Callout = (props) => {
-    const {type, text} = props;
+    const { type, text } = props;
 
     const emotes = {
         pin: '📌',
         help: '💡',
         error: '❌',
         warning: '⚠️',
-        success: '✔️'
-    }
+        success: '✔️',
+    };
 
-    return <S.Container type={type}>
-        {type && emotes[type] && <p className='emote'>{emotes[type]}</p>}
-        <p dangerouslySetInnerHTML={{__html: text}}></p>
-    </S.Container>;
+    return (
+        <S.Container type={type}>
+            {type && emotes[type] && <p className='emote'>{emotes[type]}</p>}
+            <p dangerouslySetInnerHTML={{ __html: text }}></p>
+        </S.Container>
+    );
 };
 
 export default Callout;
@@ -23,12 +25,16 @@ const S = {};
 S.Container = styled.div`
     display: flex;
     gap: 15px;
-    background: ${({type}) => {
+    background: ${({ type }) => {
         switch (type) {
-            case 'warning': return '#392E1E'
-            case 'success': return '#4e8458'
-            case 'error': return '#784646'
-            default: return '#2b2b2b'
+            case 'warning':
+                return '#392E1E';
+            case 'success':
+                return '#4e8458';
+            case 'error':
+                return '#784646';
+            default:
+                return '#2b2b2b';
         }
     }};
     border-radius: 5px;
@@ -42,5 +48,11 @@ S.Container = styled.div`
     & .emote {
         font-size: 20px;
         line-height: 1.4;
+    }
+
+    @media (max-width: 1100px) {
+        & .emote {
+            font-size: 18px;
+        }
     }
 `;

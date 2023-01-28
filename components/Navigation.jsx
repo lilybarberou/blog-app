@@ -246,7 +246,7 @@ S.MobileMenuContent = styled.div`
         font-size: 21px;
     }
     & > a {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
     &.active {
@@ -269,6 +269,7 @@ S.MobileCategories = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px 40px;
+    margin-bottom: 40px;
 
     & a {
         font-size: 17px;

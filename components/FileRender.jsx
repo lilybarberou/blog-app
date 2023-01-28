@@ -68,9 +68,12 @@ S.Container = styled.article`
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-    padding: 10px;
     max-width: 800px;
     margin-bottom: 80px;
+
+    @media (max-width: 1100px) {
+        padding: 0;
+    }
 `;
 
 // MARKDOWN STYLE
@@ -145,5 +148,16 @@ S.Content = styled.div`
     }
     & .yellow {
         color: #ffcb46;
+    }
+
+    @media (max-width: 1100px) {
+        padding: 0;
+
+        & h2 {
+            font-size: 23px;
+        }
+        & h3 {
+            font-size: 19px;
+        }
     }
 `;

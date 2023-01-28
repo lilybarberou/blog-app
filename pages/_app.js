@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
 
     * {
         margin: 0;
-        padding: 0
+        padding: 0;
     }
 
     a {
@@ -64,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
 
     &::-webkit-scrollbar {
         width: 7px;
+        height: 7px;
         background-color: transparent;
     }
 

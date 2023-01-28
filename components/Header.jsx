@@ -33,6 +33,12 @@ S.Container = styled.div`
         padding: 20px 0;
         border-bottom: ${({ theme }) => `4px solid ${theme.primary}`};
     }
+
+    @media (max-width: 1100px) {
+        h1 {
+            font-size: 30px;
+        }
+    }
 `;
 
 S.Subtitle = styled.div`
