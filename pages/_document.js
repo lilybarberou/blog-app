@@ -1,7 +1,7 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-export default function Document() {
+function Document() {
     return (
         <Html>
             <Head>
@@ -29,7 +29,7 @@ export default function Document() {
     );
 }
 
-export async function getInitialProps(ctx) {
+Document.getInitialProps = async (ctx) => {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
@@ -39,7 +39,7 @@ export async function getInitialProps(ctx) {
                 enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
             });
 
-        const initialProps = await Document.getInitialProps(ctx);
+        const initialProps = await NextDocument.getInitialProps(ctx);
         return {
             ...initialProps,
             styles: (
@@ -52,4 +52,6 @@ export async function getInitialProps(ctx) {
     } finally {
         sheet.seal();
     }
-}
+};
+
+export default Document;
