@@ -30,6 +30,9 @@ const Posts = () => {
     return posts ? (
         <S.Container>
             <Head>
+                <link rel='canonical' href='https://blog.lilybarberou.fr/posts' />
+                <meta property='og:title' content='Les posts | Lily Dev' />
+                <meta property='og:url' content='blog.lilybarberou.fr/posts' />
                 <title>Les posts | Lily Dev</title>
             </Head>
             <h1>Les posts.</h1>

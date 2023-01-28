@@ -32,6 +32,9 @@ const Category = () => {
     return router.isReady && !posts.loading ? (
         <S.Container>
             <Head>
+                <link rel='canonical' href={`https://blog.lilybarberou.fr/category/${router.query.category}`} />
+                <meta property='og:title' content={`${categories[router.query.category.toUpperCase()].name} | Lily Dev`} />
+                <meta property='og:url' content={`blog.lilybarberou.fr/category/${router.query.category}`} />
                 <title>{categories[router.query.category.toUpperCase()].name} | Lily Dev</title>
             </Head>
             <h1>{categories[router.query.category.toUpperCase()].name}.</h1>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const NotFound = () => {
-    return <S.Container></S.Container>;
+    return <S.Container>404</S.Container>;
 };
 
 export default NotFound;

@@ -30,6 +30,9 @@ const Snippets = () => {
     return snippets.length ? (
         <S.Container>
             <Head>
+                <link rel='canonical' href='https://blog.lilybarberou.fr/snippets' />
+                <meta property='og:title' content='Les snippets | Lily Dev' />
+                <meta property='og:url' content='blog.lilybarberou.fr/snippets' />
                 <title>Les snippets | Lily Dev</title>
             </Head>
             <h1>Les snippets.</h1>

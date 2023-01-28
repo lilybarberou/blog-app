@@ -39,6 +39,9 @@ const FileRender = (props) => {
     return router.isReady && !file.loading ? (
         <S.Container>
             <Head>
+                <link rel='canonical' href={`https://blog.lilybarberou.fr/${folder}/${router.query.slug}`} />
+                <meta property='og:title' content={file.meta?.title} />
+                <meta property='og:url' content={`blog.lilybarberou.fr/${folder}/${router.query.slug}`} />
                 <title>{file.meta?.title}</title>
             </Head>
             {file.code ? (

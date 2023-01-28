@@ -3,19 +3,19 @@ import { ServerStyleSheet } from 'styled-components';
 
 function Document() {
     return (
-        <Html>
+        <Html lang='fr-FR'>
             <Head>
                 <meta charSet='utf-8' />
-                <meta name='theme-color' content='#232323' />
-                {/* <link rel='manifest' href='/manifest.json' /> */}
+                <meta name='theme-color' content='#C64141' />
+                <link rel='manifest' href='/manifest.json' />
                 <link rel='icon' href='/favicon.ico' />
                 <link rel='apple-touch-icon' href='./apple-touch-icon.png' />
 
-                <meta property='og:image' content='' />
+                <meta property='og:image' content='https://raw.githubusercontent.com/Nahay/Assets/master/Blog/banner.png' />
                 <meta property='og:type' content='website' />
 
-                <meta property='og:description' content='' />
-                <meta name='description' content='' />
+                <meta property='og:description' content='Un blog pour les développeurs, par une développeuse fan de web.' />
+                <meta name='description' content='Un blog pour les développeurs, par une développeuse fan de web.' />
 
                 <link rel='preconnect' href='https://fonts.googleapis.com' />
                 <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />

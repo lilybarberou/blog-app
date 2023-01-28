@@ -1,4 +1,8 @@
-module.exports = {
+const withPWA = require('next-pwa')({
+    dest: 'public',
+});
+
+module.exports = withPWA({
     reactStrictMode: true,
     swcMinify: true,
     compiler: {
@@ -7,4 +11,4 @@ module.exports = {
             ssr: true,
         },
     },
-};
+});
