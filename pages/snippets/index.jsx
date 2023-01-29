@@ -1,33 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import styled from 'styled-components';
 import SnippetCard from '@components/SnippetCard';
 
-const Snippets = () => {
-    const [snippets, setSnippets] = useState([]);
-    const firstRender = useRef(true);
-
-    useEffect(() => {
-        const getSnippets = async () => {
-            firstRender.current = false;
-
-            const params = {
-                limit: 20,
-                folder: 'snippets',
-            };
-
-            const { data } = await axios.get('files', { params });
-
-            if (data.success) {
-                setSnippets(data.data);
-            }
-        };
-
-        firstRender.current && getSnippets();
-    }, []);
-
-    return snippets.length ? (
+const Snippets = ({ snippets }) => {
+    return (
         <S.Container>
             <Head>
                 <link rel='canonical' href='https://blog.lilybarberou.fr/snippets' />
@@ -42,12 +19,29 @@ const Snippets = () => {
                 ))}
             </S.Snippets>
         </S.Container>
-    ) : (
-        <p>Loading...</p>
     );
 };
 
 export default Snippets;
+
+export async function getServerSideProps() {
+    let snippets = [];
+
+    const params = {
+        limit: 20,
+        folder: 'snippets',
+    };
+
+    const { data } = await axios.get('files', { params });
+
+    if (data.success) snippets = data.data;
+
+    return {
+        props: {
+            snippets,
+        },
+    };
+}
 
 const S = {};
 S.Container = styled.div`

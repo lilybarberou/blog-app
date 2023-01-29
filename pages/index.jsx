@@ -44,7 +44,7 @@ const Home = ({ posts }) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     let posts = [];
 
     const params = {

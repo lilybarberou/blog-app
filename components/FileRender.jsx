@@ -1,47 +1,25 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useMemo } from 'react';
 import Head from 'next/head';
 import { getMDXComponent } from 'mdx-bundler/client';
-import axios from 'axios';
 import styled from 'styled-components';
 import Header from '@components/Header';
 import CodeBlock from '@components/CodeBlock';
 import Callout from '@components/Callout';
 
 const FileRender = (props) => {
-    const { folder } = props;
-    const router = useRouter();
-    const [file, setFile] = useState({ loading: true });
-
-    // reset state when pathname changes
-    useEffect(() => {
-        setFile({ loading: true });
-    }, [router.query]);
-
-    useEffect(() => {
-        const getData = async () => {
-            const params = {
-                folder,
-            };
-
-            const { data } = await axios.get(`files/${router.query.slug}`, { params });
-            setFile({ loading: false, ...data.data });
-        };
-
-        if (router.isReady) getData();
-    }, [router, folder]);
+    const { file = {}, folder } = props;
 
     const FileContent = useMemo(() => {
         if (file.code) return getMDXComponent(file.code);
         return <div></div>;
     }, [file.code]);
 
-    return router.isReady && !file.loading ? (
+    return (
         <S.Container>
             <Head>
-                <link rel='canonical' href={`https://blog.lilybarberou.fr/${folder}/${router.query.slug}`} />
+                <link rel='canonical' href={`https://blog.lilybarberou.fr/${folder}/${file.meta?.slug}`} />
                 <meta property='og:title' content={file.meta?.title} />
-                <meta property='og:url' content={`blog.lilybarberou.fr/${folder}/${router.query.slug}`} />
+                <meta property='og:url' content={`blog.lilybarberou.fr/${folder}/${file.meta?.slug}`} />
                 <title>{file.meta?.title}</title>
             </Head>
             {file.code ? (
@@ -57,8 +35,6 @@ const FileRender = (props) => {
                 <span>Ce contenu n&apos;existe pas</span>
             )}
         </S.Container>
-    ) : (
-        <span>Loading...</span>
     );
 };
 

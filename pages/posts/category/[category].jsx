@@ -1,46 +1,24 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import axios from 'axios';
 import styled from 'styled-components';
 import PostCard from '@components/PostCard';
 import categories from '@contexts/categories.json';
 
-const Category = () => {
-    const router = useRouter();
-    const [posts, setPosts] = useState({ loading: true });
+const Category = ({ posts, category }) => {
+    const categoryName = categories[category.toUpperCase()].name;
 
-    // reset state when pathname changes
-    useEffect(() => {
-        setPosts({ loading: true });
-    }, [router.query]);
-
-    useEffect(() => {
-        const getPosts = async () => {
-            const params = {
-                category: router.query.category,
-                folder: 'posts',
-            };
-
-            const { data } = await axios.get('files', { params });
-            setPosts({ data: data.data || [], loading: false });
-        };
-
-        if (router.isReady) getPosts();
-    }, [router]);
-
-    return router.isReady && !posts.loading ? (
+    return (
         <S.Container>
             <Head>
-                <link rel='canonical' href={`https://blog.lilybarberou.fr/category/${router.query.category}`} />
-                <meta property='og:title' content={`${categories[router.query.category.toUpperCase()].name} | Lily Dev`} />
-                <meta property='og:url' content={`blog.lilybarberou.fr/category/${router.query.category}`} />
-                <title>{categories[router.query.category.toUpperCase()].name} | Lily Dev</title>
+                <link rel='canonical' href={`https://blog.lilybarberou.fr/category/${category}`} />
+                <meta property='og:title' content={`${categoryName} | Lily Dev`} />
+                <meta property='og:url' content={`blog.lilybarberou.fr/category/${category}`} />
+                <title>{categoryName} | Lily Dev</title>
             </Head>
-            <h1>{categories[router.query.category.toUpperCase()].name}.</h1>
-            {posts.data.length ? (
+            <h1>{categoryName}.</h1>
+            {posts.length ? (
                 <S.Posts>
-                    {posts.data.map((post) => (
+                    {posts.map((post) => (
                         <PostCard key={post.slug} post={post} />
                     ))}
                 </S.Posts>
@@ -48,12 +26,30 @@ const Category = () => {
                 <span>Aucun post pour cette catégorie</span>
             )}
         </S.Container>
-    ) : (
-        <span>Loading...</span>
     );
 };
 
 export default Category;
+
+export async function getServerSideProps(ctx) {
+    let posts,
+        category = ctx.params.category;
+
+    const params = {
+        category,
+        folder: 'posts',
+    };
+
+    const { data } = await axios.get('files', { params });
+    posts = data.data || [];
+
+    return {
+        props: {
+            posts,
+            category,
+        },
+    };
+}
 
 const S = {};
 S.Container = styled.div`

@@ -1,33 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
-import axios from 'axios';
 import styled from 'styled-components';
+import axios from 'axios';
 import PostCard from '@components/PostCard';
 
-const Posts = () => {
-    const [posts, setPosts] = useState([]);
-    const firstRender = useRef(true);
-
-    useEffect(() => {
-        const getPosts = async () => {
-            firstRender.current = false;
-
-            const params = {
-                limit: 20,
-                folder: 'posts',
-            };
-
-            const { data } = await axios.get('files', { params });
-
-            if (data.success) {
-                setPosts(data.data);
-            }
-        };
-
-        firstRender && getPosts();
-    }, []);
-
-    return posts ? (
+const Posts = ({ posts }) => {
+    return (
         <S.Container>
             <Head>
                 <link rel='canonical' href='https://blog.lilybarberou.fr/posts' />
@@ -42,12 +19,29 @@ const Posts = () => {
                 ))}
             </S.Posts>
         </S.Container>
-    ) : (
-        <p>Loading...</p>
     );
 };
 
 export default Posts;
+
+export async function getServerSideProps() {
+    let posts = [];
+
+    const params = {
+        limit: 20,
+        folder: 'posts',
+    };
+
+    const { data } = await axios.get('files', { params });
+
+    if (data.success) posts = data.data;
+
+    return {
+        props: {
+            posts,
+        },
+    };
+}
 
 const S = {};
 S.Container = styled.div`
