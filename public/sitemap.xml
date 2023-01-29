@@ -7,108 +7,98 @@
 
 <url>
   <loc>https://blog.lilybarberou.fr/</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/category/html</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/category/css</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/category/js</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/category/react</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/category/nextjs</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/category/nodejs</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/category/opti</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/snippets</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/usememo-usecallback-memo</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/usecontext</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/redux</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/early-return</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/posts/array-map</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/snippets/trier-un-tableau</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/snippets/liste-regex</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/snippets/format-date</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://blog.lilybarberou.fr/snippets/demonstration-isnan</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
+  <lastmod>2023-01-29T17:32:12+00:00</lastmod>
   <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://blog.lilybarberou.fr/posts/[slug]</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://blog.lilybarberou.fr/snippets/[slug]</loc>
-  <lastmod>2023-01-29T17:03:44+00:00</lastmod>
-  <priority>0.51</priority>
 </url>
 
 
