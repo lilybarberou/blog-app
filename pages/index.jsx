@@ -14,11 +14,11 @@ const Home = ({ posts }) => {
                 <meta property='og:url' content='https://blog.lilybarberou.fr/' />
                 <meta
                     property='og:description'
-                    content="Le blog de Lily, c'est comme un café pour les développeurs - sauf que vous n'aurez pas à payer pour un café décevant. Rejoignez-nous pour du café (d'idées) gratuit sur la programmation, avec une touche d'humour."
+                    content="Le blog de Lily, c'est comme un café (d'idées) sur la programmation - sauf que vous n'aurez pas à payer pour un café décevant."
                 />
                 <meta
                     name='description'
-                    content="Le blog de Lily, c'est comme un café pour les développeurs - sauf que vous n'aurez pas à payer pour un café décevant. Rejoignez-nous pour du café (d'idées) gratuit sur la programmation, avec une touche d'humour."
+                    content="Le blog de Lily, c'est comme un café (d'idées) sur la programmation - sauf que vous n'aurez pas à payer pour un café décevant."
                 />
                 <title>LilyScript | Un blog de dev</title>
             </Head>
