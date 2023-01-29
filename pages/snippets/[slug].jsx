@@ -8,7 +8,7 @@ export default Snippet;
 export async function getStaticPaths() {
     return {
         paths: [],
-        fallback: true,
+        fallback: 'blocking',
     };
 }
 

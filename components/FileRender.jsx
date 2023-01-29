@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { getMDXComponent } from 'mdx-bundler/client';
 import styled from 'styled-components';
@@ -9,14 +8,11 @@ import Callout from '@components/Callout';
 
 const FileRender = (props) => {
     const { file = {}, folder } = props;
-    const router = useRouter();
 
     const FileContent = useMemo(() => {
         if (file.code) return getMDXComponent(file.code);
         return <div></div>;
     }, [file.code]);
-
-    if (router.isFallback) return <p>Chargement...</p>;
 
     return (
         <S.Container>
