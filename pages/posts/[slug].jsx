@@ -5,7 +5,7 @@ const Post = ({ file }) => <FileRender file={file} folder='posts' />;
 
 export default Post;
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
     let file = {};
 
     const params = {

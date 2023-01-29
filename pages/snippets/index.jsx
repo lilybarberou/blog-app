@@ -24,7 +24,7 @@ const Snippets = ({ snippets }) => {
 
 export default Snippets;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     let snippets = [];
 
     const params = {

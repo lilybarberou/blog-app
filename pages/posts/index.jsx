@@ -24,7 +24,7 @@ const Posts = ({ posts }) => {
 
 export default Posts;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     let posts = [];
 
     const params = {

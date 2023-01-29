@@ -31,7 +31,7 @@ const Category = ({ posts, category }) => {
 
 export default Category;
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
     let posts,
         category = ctx.params.category;
 

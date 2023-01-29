@@ -5,7 +5,7 @@ const Snippet = ({ file }) => <FileRender file={file} folder='snippets' />;
 
 export default Snippet;
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
     let file = {};
 
     const params = {
