@@ -12,7 +12,7 @@ const Category = ({ posts, category }) => {
             <Head>
                 <link rel='canonical' href={`https://blog.lilybarberou.fr/posts/category/${category}`} />
                 <meta property='og:title' content={`${categoryName} | Lily Dev`} />
-                <meta property='og:url' content={`blog.lilybarberou.fr/posts/category/${category}`} />
+                <meta property='og:url' content={`https://blog.lilybarberou.fr/posts/category/${category}`} />
                 <title>{categoryName} | Lily Dev</title>
             </Head>
             <h1>{categoryName}.</h1>

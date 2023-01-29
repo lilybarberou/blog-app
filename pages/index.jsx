@@ -11,7 +11,7 @@ const Home = ({ posts }) => {
             <Head>
                 <link rel='canonical' href='https://blog.lilybarberou.fr/' />
                 <meta property='og:title' content='Lily Dev' />
-                <meta property='og:url' content='blog.lilybarberou.fr/' />
+                <meta property='og:url' content='https://blog.lilybarberou.fr/' />
                 <title>Lily Dev</title>
             </Head>
             <S.LeftContent>
