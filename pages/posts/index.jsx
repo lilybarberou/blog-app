@@ -10,6 +10,14 @@ const Posts = ({ posts }) => {
                 <link rel='canonical' href='https://blog.lilybarberou.fr/posts' />
                 <meta property='og:title' content='Les posts | LilyScript' />
                 <meta property='og:url' content='https://blog.lilybarberou.fr/posts' />
+                <meta
+                    property='og:description'
+                    content="Découvrez les derniers posts de Lily. Chaque nouveau post est une occasion d'apprendre et de devenir un développeur encore plus badass."
+                />
+                <meta
+                    name='description'
+                    content="Découvrez les derniers posts de Lily. Chaque nouveau post est une occasion d'apprendre et de devenir un développeur encore plus badass."
+                />
                 <title>Les posts | LilyScript</title>
             </Head>
             <h1>Les posts.</h1>

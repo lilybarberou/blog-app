@@ -14,9 +14,6 @@ function Document() {
                 <meta property='og:image' content='https://raw.githubusercontent.com/Nahay/Assets/master/Blog/banner.png' />
                 <meta property='og:type' content='website' />
 
-                <meta property='og:description' content='Un blog pour les développeurs, par une développeuse fan de web.' />
-                <meta name='description' content='Un blog pour les développeurs, par une développeuse fan de web.' />
-
                 <link rel='preconnect' href='https://fonts.googleapis.com' />
                 <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
                 <link href='https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&display=swap' rel='stylesheet' />

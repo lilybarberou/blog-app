@@ -13,6 +13,14 @@ const Category = ({ posts, category }) => {
                 <link rel='canonical' href={`https://blog.lilybarberou.fr/posts/category/${category}`} />
                 <meta property='og:title' content={`${categoryName} | LilyScript`} />
                 <meta property='og:url' content={`https://blog.lilybarberou.fr/posts/category/${category}`} />
+                <meta
+                    property='og:description'
+                    content={`Liste des posts ${categoryName}. Chaque nouveau post est une occasion d'apprendre et de devenir un développeur encore plus badass.`}
+                />
+                <meta
+                    name='description'
+                    content={`Liste des posts ${categoryName}. Chaque nouveau post est une occasion d'apprendre et de devenir un développeur encore plus badass.`}
+                />
                 <title>{categoryName} | LilyScript</title>
             </Head>
             <h1>{categoryName}.</h1>

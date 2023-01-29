@@ -10,6 +10,14 @@ const Snippets = ({ snippets }) => {
                 <link rel='canonical' href='https://blog.lilybarberou.fr/snippets' />
                 <meta property='og:title' content='Les snippets | LilyScript' />
                 <meta property='og:url' content='https://blog.lilybarberou.fr/snippets' />
+                <meta
+                    property='og:description'
+                    content="Une liste de snippets, des extraits de code pratiques dont on se sert beaucoup, mais qu'on oublie aussi beaucoup."
+                />
+                <meta
+                    name='description'
+                    content="Une liste de snippets, des extraits de code pratiques dont on se sert beaucoup, mais qu'on oublie aussi beaucoup."
+                />
                 <title>Les snippets | LilyScript</title>
             </Head>
             <h1>Les snippets.</h1>

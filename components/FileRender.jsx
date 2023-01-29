@@ -20,6 +20,8 @@ const FileRender = (props) => {
                 <link rel='canonical' href={`https://blog.lilybarberou.fr/${folder}/${file.meta?.slug}`} />
                 <meta property='og:title' content={file.meta?.title} />
                 <meta property='og:url' content={`https://blog.lilybarberou.fr/${folder}/${file.meta?.slug}`} />
+                <meta property='og:description' content={file.meta?.description} />
+                <meta name='description' content={file.meta?.description} />
                 <title>{file.meta?.title}</title>
             </Head>
             {file.code ? (
