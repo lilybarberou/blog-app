@@ -32,7 +32,7 @@ const Home = ({ posts }) => {
                 <h2>Les catégories.</h2>
                 <S.Categories>
                     {Object.keys(categories).map((cat) => (
-                        <Link key={cat} href={`posts/category/${cat.toLowerCase()}`}>
+                        <Link key={cat} href={`/posts/category/${cat.toLowerCase()}`}>
                             {cat}
                         </Link>
                     ))}

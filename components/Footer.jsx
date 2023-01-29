@@ -19,10 +19,10 @@ const Footer = () => {
                 <S.RightContent>
                     <S.Column>
                         <span>Des catégories</span>
-                        <Link href=''>Html</Link>
-                        <Link href=''>Css</Link>
-                        <Link href=''>React</Link>
-                        <Link href=''>Javascript</Link>
+                        <Link href='/posts/category/react'>React</Link>
+                        <Link href='/posts/category/js'>Javascript</Link>
+                        <Link href='/posts/category/nextjs'>Next.Js</Link>
+                        <Link href='/posts/category/css'>Css</Link>
                     </S.Column>
                     <S.Column>
                         <span>Des liens</span>
@@ -33,7 +33,7 @@ const Footer = () => {
                         <Link target='_blank' rel='noopener noreferrer' href='https://github.com/Nahay'>
                             Github
                         </Link>
-                        <Link href=''>Term</Link>
+                        <Link href='/'>Term</Link>
                     </S.Column>
                 </S.RightContent>
             </S.Content>
