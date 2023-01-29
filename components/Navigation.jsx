@@ -11,7 +11,7 @@ const Navigation = () => {
 
     return (
         <S.Container>
-            <S.Logo href='/'>Lily Dev</S.Logo>
+            <S.Logo href='/'>LilyScript</S.Logo>
             <S.Links>
                 <Link href='/posts'>Les posts</Link>
                 <S.CategoryLabel>
@@ -45,7 +45,7 @@ const Navigation = () => {
                 <S.MobileMenuContent id='mobile-menu'>
                     <S.MobileMenuHeader>
                         <S.Logo onClick={handleMobileMenu} href='/'>
-                            Lily Dev
+                            LilyScript
                         </S.Logo>
                         <S.Icon onClick={handleMobileMenu}>
                             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'>

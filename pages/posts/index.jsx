@@ -8,9 +8,9 @@ const Posts = ({ posts }) => {
         <S.Container>
             <Head>
                 <link rel='canonical' href='https://blog.lilybarberou.fr/posts' />
-                <meta property='og:title' content='Les posts | Lily Dev' />
+                <meta property='og:title' content='Les posts | LilyScript' />
                 <meta property='og:url' content='https://blog.lilybarberou.fr/posts' />
-                <title>Les posts | Lily Dev</title>
+                <title>Les posts | LilyScript</title>
             </Head>
             <h1>Les posts.</h1>
             <S.Posts>

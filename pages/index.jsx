@@ -10,9 +10,9 @@ const Home = ({ posts }) => {
         <S.Container>
             <Head>
                 <link rel='canonical' href='https://blog.lilybarberou.fr/' />
-                <meta property='og:title' content='Lily Dev' />
+                <meta property='og:title' content='LilyScript | Un blog de dev' />
                 <meta property='og:url' content='https://blog.lilybarberou.fr/' />
-                <title>Lily Dev</title>
+                <title>LilyScript | Un blog de dev</title>
             </Head>
             <S.LeftContent>
                 <h2>Les late.</h2>

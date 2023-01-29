@@ -11,9 +11,9 @@ const Category = ({ posts, category }) => {
         <S.Container>
             <Head>
                 <link rel='canonical' href={`https://blog.lilybarberou.fr/posts/category/${category}`} />
-                <meta property='og:title' content={`${categoryName} | Lily Dev`} />
+                <meta property='og:title' content={`${categoryName} | LilyScript`} />
                 <meta property='og:url' content={`https://blog.lilybarberou.fr/posts/category/${category}`} />
-                <title>{categoryName} | Lily Dev</title>
+                <title>{categoryName} | LilyScript</title>
             </Head>
             <h1>{categoryName}.</h1>
             {posts.length ? (

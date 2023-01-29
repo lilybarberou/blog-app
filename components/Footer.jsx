@@ -12,7 +12,7 @@ const Footer = () => {
         <S.Container>
             <S.Content>
                 <S.LeftContent>
-                    <S.Logo>Lily Dev</S.Logo>
+                    <S.Logo>LilyScript</S.Logo>
                     <span>Merci de me lire !</span>
                     <span>@{new Date().getFullYear()}-present Lily Barberou. All Rights Reserved</span>
                 </S.LeftContent>
