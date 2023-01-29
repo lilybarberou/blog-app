@@ -5,7 +5,7 @@ import PostCard from '@components/PostCard';
 import categories from '@contexts/categories.json';
 
 const Category = ({ posts, category }) => {
-    const categoryName = categories[category.toUpperCase()].name;
+    const categoryName = categories[category?.toUpperCase()]?.name;
 
     return (
         <S.Container>
@@ -30,6 +30,15 @@ const Category = ({ posts, category }) => {
 };
 
 export default Category;
+
+export async function getStaticPaths() {
+    const paths = Object.keys(categories).map((cat) => ({ params: { category: cat.toLowerCase() } }));
+
+    return {
+        paths,
+        fallback: false,
+    };
+}
 
 export async function getStaticProps(ctx) {
     let posts,

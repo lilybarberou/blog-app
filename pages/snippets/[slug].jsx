@@ -5,6 +5,13 @@ const Snippet = ({ file }) => <FileRender file={file} folder='snippets' />;
 
 export default Snippet;
 
+export async function getStaticPaths() {
+    return {
+        paths: [],
+        fallback: true,
+    };
+}
+
 export async function getStaticProps(ctx) {
     let file = {};
 
