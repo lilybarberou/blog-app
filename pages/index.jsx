@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import axios from 'axios';
@@ -6,27 +5,8 @@ import styled from 'styled-components';
 import PostCard from '@components/PostCard';
 import categories from '@contexts/categories.json';
 
-const Home = () => {
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        const getPosts = async () => {
-            const params = {
-                limit: 8,
-                folder: 'posts',
-            };
-
-            const { data } = await axios.get('files', { params });
-
-            if (data.success) {
-                setPosts(data.data);
-            }
-        };
-
-        getPosts();
-    }, []);
-
-    return posts ? (
+const Home = ({ posts }) => {
+    return (
         <S.Container>
             <Head>
                 <link rel='canonical' href='https://blog.lilybarberou.fr/' />
@@ -59,12 +39,29 @@ const Home = () => {
                 </S.Categories>
             </S.RightContent>
         </S.Container>
-    ) : (
-        <p>Loading</p>
     );
 };
 
 export default Home;
+
+export async function getStaticProps() {
+    let posts = [];
+
+    const params = {
+        limit: 8,
+        folder: 'posts',
+    };
+
+    const { data } = await axios.get('files', { params });
+
+    if (data.success) posts = data.data;
+
+    return {
+        props: {
+            posts,
+        },
+    };
+}
 
 const S = {};
 S.Container = styled.div`
