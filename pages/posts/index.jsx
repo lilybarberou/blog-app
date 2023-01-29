@@ -61,6 +61,13 @@ S.Container = styled.div`
         margin-bottom: 30px;
         font-size: 25px;
     }
+
+    @media (max-width: 1100px) {
+        h1 {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+    }
 `;
 
 S.Posts = styled.div`

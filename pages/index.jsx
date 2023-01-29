@@ -22,30 +22,33 @@ const Home = ({ posts }) => {
                 />
                 <title>LilyScript | Un blog de dev</title>
             </Head>
-            <S.LeftContent>
-                <h2>Les late.</h2>
-                <S.Posts>
-                    {posts.map((post) => (
-                        <PostCard key={post.slug} post={post} />
-                    ))}
-                </S.Posts>
-                <h2>Les famous.</h2>
-                <S.Posts>
-                    {posts.map((post) => (
-                        <PostCard key={post.slug} post={post} />
-                    ))}
-                </S.Posts>
-            </S.LeftContent>
-            <S.RightContent>
-                <h2>Les catégories.</h2>
-                <S.Categories>
-                    {Object.keys(categories).map((cat) => (
-                        <Link key={cat} href={`/posts/category/${cat.toLowerCase()}`}>
-                            {cat}
-                        </Link>
-                    ))}
-                </S.Categories>
-            </S.RightContent>
+            <h1>Posez-vous, et bonne lecture</h1>
+            <S.Content>
+                <S.LeftContent>
+                    <h2>Les late.</h2>
+                    <S.Posts>
+                        {posts.map((post) => (
+                            <PostCard key={post.slug} post={post} />
+                        ))}
+                    </S.Posts>
+                    <h2>Les famous.</h2>
+                    <S.Posts>
+                        {posts.map((post) => (
+                            <PostCard key={post.slug} post={post} />
+                        ))}
+                    </S.Posts>
+                </S.LeftContent>
+                <S.RightContent>
+                    <h2>Les catégories.</h2>
+                    <S.Categories>
+                        {Object.keys(categories).map((cat) => (
+                            <Link key={cat} href={`/posts/category/${cat.toLowerCase()}`}>
+                                {cat}
+                            </Link>
+                        ))}
+                    </S.Categories>
+                </S.RightContent>
+            </S.Content>
         </S.Container>
     );
 };
@@ -74,7 +77,12 @@ export async function getStaticProps() {
 const S = {};
 S.Container = styled.div`
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 40px;
+
+    & h1 {
+        font-size: 28px;
+    }
 
     & h2 {
         color: ${({ theme }) => theme.primary};
@@ -82,6 +90,21 @@ S.Container = styled.div`
         font-size: 20px;
         white-space: nowrap;
     }
+
+    @media (max-width: 1100px) {
+        h1 {
+            font-size: 21px;
+        }
+        h2 {
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+    }
+`;
+
+S.Content = styled.div`
+    display: flex;
+    gap: 20px;
 
     @media (max-width: 750px) {
         flex-direction: column;
