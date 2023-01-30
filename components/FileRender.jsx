@@ -17,9 +17,9 @@ const FileRender = (props) => {
     return (
         <S.Container>
             <Head>
-                <link rel='canonical' href={`https://lilyscript.codes/${folder}/${file.meta?.slug}`} />
+                <link rel='canonical' href={`https://blog.lilybarberou.fr/${folder}/${file.meta?.slug}`} />
                 <meta property='og:title' content={file.meta?.title} />
-                <meta property='og:url' content={`https://lilyscript.codes/${folder}/${file.meta?.slug}`} />
+                <meta property='og:url' content={`https://blog.lilybarberou.fr/${folder}/${file.meta?.slug}`} />
                 <meta property='og:description' content={file.meta?.description} />
                 <meta name='description' content={file.meta?.description} />
                 <title>{file.meta?.title}</title>
