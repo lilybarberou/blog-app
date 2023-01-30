@@ -7,9 +7,9 @@ const Snippets = ({ snippets }) => {
     return (
         <S.Container>
             <Head>
-                <link rel='canonical' href='https://blog.lilybarberou.fr/snippets' />
+                <link rel='canonical' href='https://lilyscript.codes/snippets' />
                 <meta property='og:title' content='Les snippets | LilyScript' />
-                <meta property='og:url' content='https://blog.lilybarberou.fr/snippets' />
+                <meta property='og:url' content='https://lilyscript.codes/snippets' />
                 <meta
                     property='og:description'
                     content="Une liste de snippets, des extraits de code pratiques dont on se sert beaucoup, mais qu'on oublie aussi beaucoup."
