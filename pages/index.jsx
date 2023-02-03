@@ -22,7 +22,7 @@ const Home = ({ posts }) => {
                 />
                 <title>LilyScript | Un blog de dev</title>
             </Head>
-            <h1>Posez-vous, et bonne lecture</h1>
+            <h1>Installez-vous, et bonne lecture</h1>
             <S.Content>
                 <S.LeftContent>
                     <h2>Les late.</h2>
