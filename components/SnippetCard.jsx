@@ -33,7 +33,7 @@ S.Container = styled(Link)`
 
     & .date {
         font-size: 13px;
-        color: #787878;
+        color: ${({ theme }) => theme.grey};
         margin-left: auto;
     }
     & .title {
