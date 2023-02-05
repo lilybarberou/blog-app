@@ -27,7 +27,7 @@ const globalTheme = {
     background: '#25262C',
     primary: '#C64141',
     secondary: '#c5a186',
-    grey: '#878787',
+    grey: '#8F8F8F',
     border: '1px solid #8D8D8D',
 };
 
