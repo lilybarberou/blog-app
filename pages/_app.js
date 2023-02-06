@@ -4,12 +4,23 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navigation from '@components/Navigation';
 import Footer from '@components/Footer';
+import Script from 'next/script';
 
 axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_API_URL}/`;
 
 function MyApp({ Component, pageProps }) {
     return (
         <ThemeProvider theme={globalTheme}>
+            <Script src='https://www.googletagmanager.com/gtag/js?id=G-5DY6WZY9RQ' strategy='afterInteractive' />
+            <Script id='google-analytics' strategy='afterInteractive'>
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){window.dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'G-5DY6WZY9RQ');
+                `}
+            </Script>
             <ToastContainer />
             <GlobalStyle />
             <S.Container>
