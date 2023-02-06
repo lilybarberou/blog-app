@@ -11,14 +11,14 @@ axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_API_URL}/`;
 function MyApp({ Component, pageProps }) {
     return (
         <ThemeProvider theme={globalTheme}>
-            <Script src='https://www.googletagmanager.com/gtag/js?id=G-5DY6WZY9RQ' strategy='afterInteractive' />
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} strategy='afterInteractive' />
             <Script id='google-analytics' strategy='afterInteractive'>
                 {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){window.dataLayer.push(arguments);}
                     gtag('js', new Date());
 
-                    gtag('config', 'G-5DY6WZY9RQ');
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}}');
                 `}
             </Script>
             <ToastContainer />
