@@ -153,7 +153,7 @@ S.CategoriesContainer = styled.div`
 `;
 
 S.Categories = styled.div`
-    background: #ffffff24;
+    background: #4b4b4b;
     padding: 10px;
     border: ${({ theme }) => theme.border};
     display: grid;
