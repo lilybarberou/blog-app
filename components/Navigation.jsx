@@ -160,15 +160,19 @@ S.Categories = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 5px 40px;
 
-    & > a {
+    > a {
         position: relative;
         padding: 2px 5px;
         width: fit-content;
+        transition: 0.2s;
 
-        &:hover::after {
+        :hover {
+            color: ${({ theme }) => theme.primary};
+        }
+        :hover::after {
             width: 100%;
         }
-        &::after {
+        ::after {
             transition: 0.3s;
             width: 0;
             background: ${({ theme }) => theme.primary};

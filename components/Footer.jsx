@@ -12,7 +12,9 @@ const Footer = () => {
         <S.Container>
             <S.Content>
                 <S.LeftContent>
-                    <S.Logo>LilyScript</S.Logo>
+                    <S.Logo as={Link} href='/'>
+                        LilyScript
+                    </S.Logo>
                     <span>Merci de me lire !</span>
                     <span>@{new Date().getFullYear()}-present Lily Barberou. All Rights Reserved</span>
                 </S.LeftContent>
@@ -112,12 +114,19 @@ S.Column = styled.div`
     flex-direction: column;
     gap: 3px;
 
-    & > span:first-child {
+    > span:first-child {
         color: ${({ theme }) => theme.primary};
         font-size: 16px;
         margin-bottom: 10px;
     }
-    & .discord {
+    a {
+        transition: 0.2s;
+
+        :hover {
+            color: ${({ theme }) => theme.primary};
+        }
+    }
+    .discord {
         cursor: pointer;
     }
 
