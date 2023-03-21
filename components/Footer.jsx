@@ -119,7 +119,8 @@ S.Column = styled.div`
         font-size: 16px;
         margin-bottom: 10px;
     }
-    a {
+    a,
+    .discord {
         transition: 0.2s;
 
         :hover {
