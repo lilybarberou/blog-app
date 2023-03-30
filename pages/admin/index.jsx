@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Button, InputContainer } from '@components/StyledComponents';
+import Link from 'next/link';
 
 const Posts = ({ posts, snippets }) => {
     const router = useRouter();
@@ -71,18 +72,23 @@ const Posts = ({ posts, snippets }) => {
                 <meta property='og:title' content='Admin | LilyScript' />
                 <title>Admin | LilyScript</title>
             </Head>
-            <S.Posts>
-                <h2>Les posts.</h2>
-                {data.current.posts.map((post) => (
-                    <Item key={post.slug} {...post} folder='posts' />
-                ))}
-            </S.Posts>
-            <S.Posts>
-                <h2>Les snippets.</h2>
-                {data.current.snippets.map((snippet) => (
-                    <Item key={snippet.slug} {...snippet} folder='snippets' />
-                ))}
-            </S.Posts>
+            <Button as={Link} href='/admin/create-post'>
+                Créer un fichier
+            </Button>
+            <div>
+                <S.Posts>
+                    <h2>Les posts.</h2>
+                    {data.current.posts.map((post) => (
+                        <Item key={post.slug} {...post} folder='posts' />
+                    ))}
+                </S.Posts>
+                <S.Posts>
+                    <h2>Les snippets.</h2>
+                    {data.current.snippets.map((snippet) => (
+                        <Item key={snippet.slug} {...snippet} folder='snippets' />
+                    ))}
+                </S.Posts>
+            </div>
             {modalData.open && <ModalDelete />}
         </S.Container>
     );
@@ -111,9 +117,18 @@ export async function getStaticProps() {
 
 const S = {};
 S.Container = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    > div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+
+    > a {
+        display: block;
+        width: fit-content;
+        margin-bottom: 30px;
+        padding: 10px 20px;
+    }
 
     h2 {
         color: ${({ theme }) => theme.primary};
