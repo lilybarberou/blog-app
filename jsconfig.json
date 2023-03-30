@@ -5,7 +5,8 @@
             "@components/*": ["components/*"],
             "@containers/*": ["containers/*"],
             "@contexts/*": ["contexts/*"],
-            "@public/*": ["public/*"]
+            "@public/*": ["public/*"],
+            "@views/*": ["views/*"]
         }
     }
 }
