@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
                     gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}}');
                 `}
             </Script>
-            <ToastContainer />
+            <ToastContainer theme='dark' />
             <GlobalStyle />
             <S.Container>
                 <Navigation />
@@ -56,6 +56,12 @@ const GlobalStyle = createGlobalStyle`
 
     p {
         /* font-family: 'Poppins', sans-serif; */
+    }
+
+    input {
+        --webkit-appearance: none;
+        --moz-appearance: none;
+        appearance: none;
     }
 
     *::selection {

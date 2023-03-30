@@ -9,6 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@codesandbox/sandpack-react": "^2.1.11",
         "axios": "^1.2.2",
         "mdx-bundler": "^9.2.1",
         "next": "13.1.1",
