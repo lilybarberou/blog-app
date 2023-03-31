@@ -7,7 +7,7 @@ const CreatePost = () => {
             <Head>
                 <title>Créer un post</title>
             </Head>
-            <CreateFile />;
+            <CreateFile />
         </>
     );
 };
