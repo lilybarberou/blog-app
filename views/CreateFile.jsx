@@ -1,26 +1,33 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import { SandpackCodeEditor, SandpackProvider, useActiveCode } from '@codesandbox/sandpack-react';
 import { Button, InputContainer } from '@components/StyledComponents';
 import { getFormData } from '@contexts/Utils';
+import Back from '@components/Back';
 
 const CreateFile = (props) => {
     const { edit = false, data = {} } = props;
     const playgroundRef = useRef();
+    const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const data = getFormData('#form');
+        const formData = getFormData('#form');
         const code = playgroundRef.current.getCode();
 
+        let old_slug;
+        if (edit && formData.slug !== data.meta.slug) old_slug = data.meta.slug;
+
         let res;
-        if (edit) res = await axios.put('files', { ...data, code, folder: 'posts' });
-        else res = await axios.post('files', { ...data, code, folder: 'posts' });
+        if (edit) res = await axios.put('files', { ...formData, code, old_slug, folder: 'posts' });
+        else res = await axios.post('files', { ...formData, code, folder: 'posts' });
 
         toast(res.data.message, { type: res.data.success ? 'success' : 'error' });
+        if (res.data.success) router.push('/admin');
     };
 
     const files = {
@@ -37,6 +44,7 @@ categories: ['REACT']
 
     return (
         <S.Container id='form' onSubmit={handleSubmit}>
+            <Back url='/admin' />
             <h1>{edit ? 'Modifier' : 'Créer'} un post</h1>
             <InputContainer>
                 <label>Slug (mon-titre)*</label>
@@ -49,7 +57,7 @@ categories: ['REACT']
                 <label>Mot de passe*</label>
                 <input type='password' name='password' />
             </InputContainer>
-            <S.Button>Créer</S.Button>
+            <S.Button>{edit ? 'Modifier' : 'Créer'}</S.Button>
         </S.Container>
     );
 };
