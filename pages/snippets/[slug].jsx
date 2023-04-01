@@ -22,7 +22,7 @@ export async function getStaticProps(ctx) {
         folder: 'snippets',
     };
 
-    const { data } = await axios.get(`files/${ctx.params.slug}`, { params });
+    const { data } = await axios.get(`files/content/${ctx.params.slug}`, { params });
     file = { ...data.data };
 
     return {
