@@ -13,14 +13,14 @@ const EditFile = ({ file }) => {
     );
 };
 
-export async function getStaticPaths() {
-    return {
-        paths: [],
-        fallback: 'blocking',
-    };
-}
+// export async function getStaticPaths() {
+//     return {
+//         paths: [],
+//         fallback: 'blocking',
+//     };
+// }
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
     let file = {};
 
     const params = {
@@ -28,7 +28,7 @@ export async function getStaticProps(ctx) {
         originalFile: true,
     };
 
-    const { data } = await axios.get(`files/${ctx.params.slug}`, { params });
+    const { data } = await axios.get(`files/content/${ctx.params.slug}`, { params });
     file = { ...data.data };
 
     return {
