@@ -48,6 +48,7 @@ export async function getStaticProps() {
         props: {
             posts,
         },
+        revalidate: parseInt(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
     };
 }
 

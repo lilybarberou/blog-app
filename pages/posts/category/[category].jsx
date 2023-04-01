@@ -65,6 +65,7 @@ export async function getStaticProps(ctx) {
             posts,
             category,
         },
+        revalidate: parseInt(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
     };
 }
 
