@@ -98,7 +98,7 @@ const Posts = ({ posts, snippets }) => {
 
 export default Posts;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     let posts = [],
         snippets = [];
 
