@@ -6,8 +6,11 @@ const Post = ({ file }) => <FileRender file={file} folder='posts' />;
 export default Post;
 
 export async function getStaticPaths() {
+    const { data } = await axios.get('files/paths', { params: { folder: 'posts' } });
+    const paths = data.data.map((slug) => ({ params: { slug } }));
+
     return {
-        paths: [],
+        paths,
         fallback: 'blocking',
     };
 }

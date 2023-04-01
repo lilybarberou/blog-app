@@ -6,8 +6,11 @@ const Snippet = ({ file }) => <FileRender file={file} folder='snippets' />;
 export default Snippet;
 
 export async function getStaticPaths() {
+    const { data } = await axios.get('files/paths', { params: { folder: 'snippets' } });
+    const paths = data.data.map((slug) => ({ params: { slug } }));
+
     return {
-        paths: [],
+        paths,
         fallback: 'blocking',
     };
 }
