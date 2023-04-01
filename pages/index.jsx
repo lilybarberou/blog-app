@@ -9,9 +9,9 @@ const Home = ({ posts }) => {
     return (
         <S.Container>
             <Head>
-                <link rel='canonical' href='https://blog.lilybarberou.fr/' />
+                <link rel='canonical' href='https://lilyscript.fr/' />
                 <meta property='og:title' content='LilyScript | Un blog de dev' />
-                <meta property='og:url' content='https://blog.lilybarberou.fr/' />
+                <meta property='og:url' content='https://lilyscript.fr/' />
                 <meta
                     property='og:description'
                     content="Le blog de Lily, c'est comme un café (d'idées) sur la programmation - sauf que vous n'aurez pas à payer pour un café décevant."

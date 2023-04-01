@@ -10,9 +10,9 @@ const Category = ({ posts, category }) => {
     return (
         <S.Container>
             <Head>
-                <link rel='canonical' href={`https://blog.lilybarberou.fr/posts/category/${category}`} />
+                <link rel='canonical' href={`https://lilyscript.fr/posts/category/${category}`} />
                 <meta property='og:title' content={`${categoryName} | LilyScript`} />
-                <meta property='og:url' content={`https://blog.lilybarberou.fr/posts/category/${category}`} />
+                <meta property='og:url' content={`https://lilyscript.fr/posts/category/${category}`} />
                 <meta
                     property='og:description'
                     content={`Liste des posts ${categoryName}. Chaque nouveau post est une occasion d'apprendre et de devenir un développeur encore plus badass.`}

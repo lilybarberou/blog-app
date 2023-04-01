@@ -7,9 +7,9 @@ const Posts = ({ posts }) => {
     return (
         <S.Container>
             <Head>
-                <link rel='canonical' href='https://blog.lilybarberou.fr/posts' />
+                <link rel='canonical' href='https://lilyscript.fr/posts' />
                 <meta property='og:title' content='Les posts | LilyScript' />
-                <meta property='og:url' content='https://blog.lilybarberou.fr/posts' />
+                <meta property='og:url' content='https://lilyscript.fr/posts' />
                 <meta
                     property='og:description'
                     content="Découvrez les derniers posts de Lily. Chaque nouveau post est une occasion d'apprendre et de devenir un développeur encore plus badass."

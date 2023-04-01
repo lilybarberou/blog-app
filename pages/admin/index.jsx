@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -8,7 +7,6 @@ import { Button, InputContainer } from '@components/StyledComponents';
 import Link from 'next/link';
 
 const Posts = ({ posts, snippets }) => {
-    const router = useRouter();
     const data = useRef({ posts, snippets });
     const passwordRef = useRef();
     const init = { open: false, slug: '', folder: '' };
@@ -70,7 +68,6 @@ const Posts = ({ posts, snippets }) => {
     return (
         <S.Container>
             <Head>
-                <link rel='canonical' href='https://blog.lilybarberou.fr/admin' />
                 <meta property='og:title' content='Admin | LilyScript' />
                 <title>Admin | LilyScript</title>
             </Head>
