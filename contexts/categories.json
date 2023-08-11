@@ -26,5 +26,9 @@
     "OPTI": {
         "color": "#ffff02",
         "name": "Optimisation"
+    },
+    "SEO": {
+        "color": "#6ed289",
+        "name": "SEO"
     }
 }

@@ -63,6 +63,12 @@ S.Content = styled.div`
     flex-direction: column;
     gap: 10px;
 
+    a {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-color: ${({ theme }) => theme.primary};
+    }
+
     & p,
     ul,
     ol {
