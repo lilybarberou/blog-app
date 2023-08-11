@@ -25,19 +25,21 @@ function generateSiteMap(categories, posts, snippets) {
        })
        .join('')}
    ${posts
-       .map((path) => {
+       .map((file) => {
            return `
     <url>
-        <loc>${`${DOMAIN}/posts/${path}`}</loc>
+        <loc>${`${DOMAIN}/posts/${file.name}`}</loc>
+        <last-mod>${file.lastMod}</last-mod>
     </url>
     `;
        })
        .join('')}
        ${snippets
-           .map((path) => {
+           .map((file) => {
                return `
   <url>
-      <loc>${`${DOMAIN}/snippets/${path}`}</loc>
+      <loc>${`${DOMAIN}/snippets/${file.name}`}</loc>
+      <last-mod>${file.lastMod}</last-mod>
   </url>
  `;
            })
@@ -49,7 +51,8 @@ function generateSiteMap(categories, posts, snippets) {
 function SiteMap() {}
 
 export async function getServerSideProps({ res }) {
-    const { data } = await axios.get('files/paths');
+    const { data } = await axios.get('files/paths', { params: { lastMod: true } });
+
     const categoriesPaths = Object.keys(categories).map((cat) => cat.toLowerCase());
 
     const posts = data.data.posts;
