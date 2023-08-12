@@ -21,9 +21,9 @@ const S = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;
-    background: #252525;
+    background: #393939;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
     color: white;
 
     & > span {

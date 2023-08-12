@@ -61,7 +61,7 @@ S.Container = styled.article`
 S.Content = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 
     a {
         text-decoration: underline;
@@ -71,27 +71,29 @@ S.Content = styled.div`
 
     & p,
     ul,
-    ol {
-        font-size: 15px;
+    ol,
+    u {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 17px;
         font-weight: 300;
-        line-height: 1.7;
+        line-height: 1.8;
     }
 
     & h2 {
         color: ${({ theme }) => theme.primary};
-        font-size: 26px;
-        margin: 20px 0 15px 0;
+        font-size: 30px;
+        margin: 50px 0 15px 0;
     }
 
     & h3 {
         color: #fff;
-        font-size: 22px;
-        margin: 10px 0;
+        font-size: 24px;
+        margin: 25px 0 10px 0;
     }
 
     & code {
         padding: 2px 5px;
-        background: #00000039;
+        background: #393939;
         border-radius: 5px;
         color: #fff;
         width: fit-content;

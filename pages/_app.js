@@ -54,10 +54,6 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
-    p {
-        /* font-family: 'Poppins', sans-serif; */
-    }
-
     input {
         --webkit-appearance: none;
         --moz-appearance: none;

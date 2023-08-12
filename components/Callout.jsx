@@ -34,7 +34,7 @@ S.Container = styled.div`
             case 'error':
                 return '#784646';
             default:
-                return '#2b2b2b';
+                return '#393939';
         }
     }};
     border-radius: 5px;
@@ -42,7 +42,7 @@ S.Container = styled.div`
 
     & p:not(.emote) {
         line-height: 1.5 !important;
-        font-size: 14px !important;
+        font-size: 16px !important;
     }
 
     & .emote {
