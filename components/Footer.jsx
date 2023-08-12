@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Footer = () => {
     const copyDiscord = () => {
-        navigator.clipboard.writeText('Lily.#7476');
+        navigator.clipboard.writeText('lily.js');
         toast.success('Pseudo discord copié');
     };
 
@@ -28,14 +28,16 @@ const Footer = () => {
                     </S.Column>
                     <S.Column>
                         <span>Des liens</span>
-                        <Link href='mailto:lily.barberou@gmail.com'>Contact</Link>
+                        <Link href='https://lilybarberou.fr' target='_blank' rel='noopener noreferrer'>
+                            Mon site à moi
+                        </Link>
                         <span className='discord' onClick={copyDiscord}>
                             Discord
                         </span>
-                        <Link target='_blank' rel='noopener noreferrer' href='https://github.com/Nahay'>
+                        <Link target='_blank' rel='noopener noreferrer' href='https://github.com/lilybarberou'>
                             Github
                         </Link>
-                        <Link href='/'>Term</Link>
+                        <Link href='mailto:lily.barberou@gmail.com'>Contact</Link>
                     </S.Column>
                 </S.RightContent>
             </S.Content>
