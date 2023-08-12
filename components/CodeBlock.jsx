@@ -21,13 +21,13 @@ const S = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;
-    background: #393939;
+    background: #555564;
     border-radius: 5px;
-    padding: 5px;
+    padding: 4px;
     color: white;
 
     & > span {
-        background: #2b2b2b;
+        background: #2d2d35;
         padding: 5px 10px;
         font-size: 14px;
         width: fit-content;
@@ -42,6 +42,7 @@ S.Container = styled.div`
 
     & pre {
         margin: 0 !important;
+        background: #2d2d35 !important;
     }
 
     @media (max-width: 1100px) {

@@ -74,9 +74,11 @@ S.Content = styled.div`
     ol,
     u {
         font-family: 'Montserrat', sans-serif;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 300;
-        line-height: 1.8;
+        line-height: 1.5;
+        letter-spacing: 0.3px;
+        color: hsl(0, 0%, 82.5%);
     }
 
     & h2 {

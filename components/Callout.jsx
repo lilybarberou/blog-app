@@ -34,7 +34,7 @@ S.Container = styled.div`
             case 'error':
                 return '#784646';
             default:
-                return '#393939';
+                return '#2D2D35';
         }
     }};
     border-radius: 5px;

@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 
 const globalTheme = {
-    background: '#25262C',
+    background: '#1A1A1E',
     primary: '#C64141',
     secondary: '#c5a186',
     grey: '#8F8F8F',
