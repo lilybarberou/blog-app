@@ -56,6 +56,9 @@ const Navigation = () => {
                     <Link onClick={handleMobileMenu} href='/posts'>
                         Les posts
                     </Link>
+                    <Link onClick={handleMobileMenu} href='/snippets'>
+                        Les snippets
+                    </Link>
                     <span>Les catégories</span>
                     <S.MobileCategories>
                         {Object.entries(categories).map(([key, value]) => (
@@ -64,9 +67,6 @@ const Navigation = () => {
                             </Link>
                         ))}
                     </S.MobileCategories>
-                    <Link onClick={handleMobileMenu} href='/snippets'>
-                        Les snippets
-                    </Link>
                 </S.MobileMenuContent>
             </S.MobileMenu>
         </S.Container>
