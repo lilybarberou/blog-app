@@ -29,7 +29,7 @@ function generateSiteMap(categories, posts, snippets) {
            return `
     <url>
         <loc>${`${DOMAIN}/posts/${file.name}`}</loc>
-        <last-mod>${file.lastMod}</last-mod>
+        <lastmod>${file.lastMod}</lastmod>
     </url>
     `;
        })
@@ -39,7 +39,7 @@ function generateSiteMap(categories, posts, snippets) {
                return `
   <url>
       <loc>${`${DOMAIN}/snippets/${file.name}`}</loc>
-      <last-mod>${file.lastMod}</last-mod>
+      <lastmod>${file.lastMod}</lastmod>
   </url>
  `;
            })
