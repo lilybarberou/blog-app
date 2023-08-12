@@ -153,17 +153,18 @@ S.CategoriesContainer = styled.div`
 `;
 
 S.Categories = styled.div`
-    background: #4b4b4b;
+    background: #2d2d35;
     padding: 10px;
     border: ${({ theme }) => theme.border};
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5px 40px;
+    gap: 5px 20px;
 
     > a {
         position: relative;
-        padding: 2px 5px;
+        padding: 8px 15px;
         width: fit-content;
+        min-width: 120px;
         transition: 0.2s;
 
         :hover {
