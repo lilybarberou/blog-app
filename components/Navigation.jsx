@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import categories from '@contexts/categories.json';
+import useModal from '@contexts/useModal';
+import ModalSearch from './ModalSearch';
 
 const Navigation = () => {
+    const { isOpen, open, close } = useModal(['search']);
+
     const handleMobileMenu = () => {
         const el = document.querySelector('#mobile-menu');
         el.classList.toggle('active');
@@ -11,6 +15,7 @@ const Navigation = () => {
 
     return (
         <S.Container>
+            {isOpen('search') && <ModalSearch onClose={() => close('search')} />}
             <S.Logo href='/'>LilyScript</S.Logo>
             <S.Links>
                 <Link href='/posts'>Les posts</Link>
@@ -29,7 +34,7 @@ const Navigation = () => {
                 </S.CategoryLabel>
                 <Link href='/snippets'>Les snippets</Link>
             </S.Links>
-            <S.Search>
+            <S.Search onClick={() => open('search')}>
                 <S.Icon>
                     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
                         <path d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z' />
@@ -195,8 +200,8 @@ S.Search = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 33px;
+    width: 38px;
+    height: 34px;
 
     & > svg {
         fill: #fff;
@@ -215,8 +220,8 @@ S.Icon = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 33px;
+    width: 38px;
+    height: 34px;
 
     & svg {
         fill: #fff;
