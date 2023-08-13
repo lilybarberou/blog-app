@@ -36,15 +36,30 @@ const Navigation = () => {
             </S.Links>
             <S.Search onClick={() => open('search')}>
                 <S.Icon>
-                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
-                        <path d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z' />
+                    <svg fill='#C64141' width='24px' height='24px' viewBox='0 0 24 24' stroke-width='1.5' xmlns='http://www.w3.org/2000/svg' color='#fff'>
+                        <path
+                            d='M17 17l4 4M3 11a8 8 0 1016 0 8 8 0 00-16 0z'
+                            stroke='#fff'
+                            strokeWidth='1.5'
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                        ></path>
                     </svg>
                 </S.Icon>
             </S.Search>
             <S.MobileMenu>
                 <S.Icon onClick={handleMobileMenu}>
-                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'>
-                        <path d='M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z' />
+                    <svg
+                        id='open'
+                        width='24px'
+                        height='24px'
+                        stroke-width='1.5'
+                        viewBox='0 0 24 24'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
+                        color='#fff'
+                    >
+                        <path d='M3 5h18M3 12h18M3 19h18' stroke='#fff' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'></path>
                     </svg>
                 </S.Icon>
                 <S.MobileMenuContent id='mobile-menu'>
@@ -53,8 +68,14 @@ const Navigation = () => {
                             LilyScript
                         </S.Logo>
                         <S.Icon onClick={handleMobileMenu}>
-                            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'>
-                                <path d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z' />
+                            <svg width='24px' height='24px' strokeWidth='1.5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' color='#fff'>
+                                <path
+                                    d='M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243'
+                                    stroke='#fff'
+                                    strokeWidth='1.5'
+                                    strokeLinecap='round'
+                                    strokeLinejoin='round'
+                                ></path>
                             </svg>
                         </S.Icon>
                     </S.MobileMenuHeader>
@@ -200,13 +221,8 @@ S.Search = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 34px;
-
-    & > svg {
-        fill: #fff;
-        width: 15px;
-    }
+    width: 40px;
+    height: 37px;
 
     @media (max-width: 750px) {
         display: none;
@@ -220,12 +236,15 @@ S.Icon = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 34px;
+    width: 40px;
+    height: 37px;
 
-    & svg {
-        fill: #fff;
-        width: 15px;
+    svg {
+        width: 23px;
+    }
+
+    #open {
+        width: 20px;
     }
 `;
 
@@ -254,7 +273,7 @@ S.MobileMenuContent = styled.div`
         margin-bottom: 25px;
         font-size: 21px;
     }
-    & a {
+    a {
         font-size: 21px;
     }
     & > a {
@@ -272,7 +291,7 @@ S.MobileMenuHeader = styled.div`
     justify-content: space-between;
     margin-bottom: 60px;
 
-    & a {
+    a {
         font-size: 24px;
     }
 `;
@@ -283,7 +302,7 @@ S.MobileCategories = styled.div`
     gap: 25px 40px;
     margin-bottom: 40px;
 
-    & a {
+    a {
         font-size: 17px;
     }
 `;

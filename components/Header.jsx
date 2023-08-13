@@ -46,8 +46,10 @@ S.Subtitle = styled.div`
     justify-content: flex-end;
     gap: 10px;
     font-size: 14px;
+    margin-bottom: 10px;
 
-    & .date {
+    .date {
+        font-size: 16px;
         margin-right: auto;
         color: ${({ theme }) => theme.primary};
     }
@@ -55,4 +57,5 @@ S.Subtitle = styled.div`
 
 S.Category = styled.span`
     color: ${({ color }) => color};
+    font-size: 16px;
 `;

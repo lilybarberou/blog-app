@@ -25,6 +25,7 @@ S.Container = styled.div`
     border-radius: 5px;
     padding: 4px;
     color: white;
+    margin: 20px 0;
 
     & > span {
         background: #2d2d35;
@@ -34,19 +35,19 @@ S.Container = styled.div`
         border-radius: 5px 5px 0 0;
     }
 
-    & code {
+    code {
         background: unset !important;
         padding: unset !important;
         border-radius: unset;
     }
 
-    & pre {
+    pre {
         margin: 0 !important;
         background: #2d2d35 !important;
     }
 
     @media (max-width: 1100px) {
-        & code {
+        code {
             font-size: 12px;
         }
     }

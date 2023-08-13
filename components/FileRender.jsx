@@ -69,47 +69,48 @@ S.Content = styled.div`
         text-decoration-color: ${({ theme }) => theme.primary};
     }
 
-    & p,
+    p,
     ul,
     ol,
     u {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'DM Sans', sans-serif;
         font-size: 16px;
         font-weight: 300;
         line-height: 1.5;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.4px;
         color: hsl(0, 0%, 82.5%);
     }
 
-    & h2 {
+    h2 {
         color: ${({ theme }) => theme.primary};
         font-size: 30px;
         margin: 50px 0 15px 0;
     }
 
-    & h3 {
+    h3 {
         color: #fff;
         font-size: 24px;
         margin: 25px 0 10px 0;
     }
 
-    & code {
+    code {
         padding: 2px 5px;
-        background: #393939;
+        /* background: #393939; */
+        background: #474753;
         border-radius: 5px;
         color: #fff;
         width: fit-content;
     }
 
-    & ul {
+    ul {
         margin-left: 15px;
     }
 
-    & ol {
+    ol {
         margin-left: 30px;
     }
 
-    & blockquote {
+    blockquote {
         position: relative;
         padding-left: 15px;
         background: #00000026;
@@ -127,22 +128,29 @@ S.Content = styled.div`
         }
     }
 
-    & u {
+    u {
         text-underline-offset: 5px;
     }
 
-    & .red {
+    .red {
         color: #d85352;
     }
-    & .orange {
+    .orange {
         color: #ffa446;
     }
-    & .yellow {
+    .yellow {
         color: #ffcb46;
     }
 
     @media (max-width: 1100px) {
         padding: 0;
+
+        p,
+        ul,
+        ol,
+        u {
+            font-size: 15px;
+        }
 
         & h2 {
             font-size: 23px;

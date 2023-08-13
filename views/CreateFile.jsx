@@ -91,7 +91,7 @@ S.Container = styled.form`
         margin-bottom: 30px;
     }
     input {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'DM Sans', sans-serif;
     }
 
     .sp-stack {
