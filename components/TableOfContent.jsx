@@ -1,10 +1,37 @@
 import Link from 'next/link';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import styled from 'styled-components';
 
 const TableOfContents = ({ data }) => {
+    useEffect(() => {
+        // on scroll change the active link
+        const handleScroll = () => {
+            const links = document.querySelectorAll('#table-of-contents a');
+            const sections = document.querySelectorAll('h2, h3');
+
+            const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+            sections.forEach((section, index) => {
+                // le 200 permet de capter plus tôt le changement de section
+                if (section.offsetTop <= scrollPosition + 200) {
+                    links.forEach((link) => {
+                        link.classList.remove('active');
+                    });
+                    links[index].classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            // remove event listener on unmount
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <S.Container>
+        <S.Container id='table-of-contents'>
             <p>Table des matières</p>
             {data.map((title) => {
                 return (
@@ -53,6 +80,10 @@ S.Container = styled.div`
 
         &:hover {
             color: #fff;
+        }
+
+        &.active {
+            color: ${({ theme }) => theme.primary};
         }
     }
 

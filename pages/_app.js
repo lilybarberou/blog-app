@@ -45,9 +45,12 @@ const globalTheme = {
 const GlobalStyle = createGlobalStyle`
     html {
         scroll-behavior: smooth !important;
-        scroll-margin-top: 50px;
     }
-
+    
+    * {
+        scroll-margin-top: 100px !important;
+    }
+    
     body {
         font-family: 'Source Code Pro', monospace;
         background: ${({ theme }) => theme.background};
