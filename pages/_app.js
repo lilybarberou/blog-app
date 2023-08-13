@@ -54,6 +54,10 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
+    h1, h2, h3, h4, h5, h6 {
+        word-spacing: -5px;
+    }
+
     input {
         --webkit-appearance: none;
         --moz-appearance: none;

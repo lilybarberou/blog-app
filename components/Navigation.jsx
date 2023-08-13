@@ -99,7 +99,9 @@ S.Links = styled.div`
 
     & > a {
         position: relative;
-        padding: 2px 10px;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
 
         &:hover::after {
             width: 100%;
@@ -158,7 +160,7 @@ S.Categories = styled.div`
     border: ${({ theme }) => theme.border};
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5px 20px;
+    gap: 0px 20px;
 
     > a {
         position: relative;
