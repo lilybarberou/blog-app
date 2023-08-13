@@ -36,7 +36,7 @@ const Navigation = () => {
             </S.Links>
             <S.Search onClick={() => open('search')}>
                 <S.Icon>
-                    <svg fill='#C64141' width='24px' height='24px' viewBox='0 0 24 24' stroke-width='1.5' xmlns='http://www.w3.org/2000/svg' color='#fff'>
+                    <svg fill='#C64141' width='24px' height='24px' viewBox='0 0 24 24' strokeWidth='1.5' xmlns='http://www.w3.org/2000/svg' color='#fff'>
                         <path
                             d='M17 17l4 4M3 11a8 8 0 1016 0 8 8 0 00-16 0z'
                             stroke='#fff'
@@ -49,16 +49,7 @@ const Navigation = () => {
             </S.Search>
             <S.MobileMenu>
                 <S.Icon onClick={handleMobileMenu}>
-                    <svg
-                        id='open'
-                        width='24px'
-                        height='24px'
-                        stroke-width='1.5'
-                        viewBox='0 0 24 24'
-                        fill='none'
-                        xmlns='http://www.w3.org/2000/svg'
-                        color='#fff'
-                    >
+                    <svg id='open' width='24px' height='24px' strokeWidth='1.5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' color='#fff'>
                         <path d='M3 5h18M3 12h18M3 19h18' stroke='#fff' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'></path>
                     </svg>
                 </S.Icon>
@@ -106,10 +97,15 @@ S.Container = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom: 100px;
+    margin-bottom: 75px;
+    position: sticky;
+    top: 0;
+    padding: 25px 0;
+    background: ${({ theme }) => theme.background};
 
     @media (max-width: 750px) {
-        margin-bottom: 50px;
+        margin-bottom: 25px;
+        padding: 15px 0;
     }
 `;
 

@@ -40,18 +40,22 @@ S.Container = styled.div`
     border-radius: 5px;
     padding: 15px;
 
-    & p:not(.emote) {
+    p:not(.emote) {
         line-height: 1.5 !important;
         font-size: 16px !important;
     }
 
-    & .emote {
+    .emote {
         font-size: 20px;
         line-height: 1.4;
     }
 
     @media (max-width: 1100px) {
-        & .emote {
+        & p:not(.emote) {
+            font-size: 15px !important;
+        }
+
+        .emote {
             font-size: 18px;
         }
     }
