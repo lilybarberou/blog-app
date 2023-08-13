@@ -9,13 +9,13 @@ const TableOfContents = ({ data }) => {
             {data.map((title) => {
                 return (
                     <Fragment key={title.link}>
-                        <Link href={`#${title.link}`}>{title.text}</Link>
+                        <Link href={title.link}>{title.text}</Link>
                         {title.children && (
                             <S.SubItems>
                                 {title.children.map((subtitle) => {
                                     return (
                                         <Fragment key={subtitle.link}>
-                                            <Link href={`#${subtitle.link}`}>{subtitle.text}</Link>
+                                            <Link href={subtitle.link}>{subtitle.text}</Link>
                                         </Fragment>
                                     );
                                 })}
@@ -49,6 +49,11 @@ S.Container = styled.div`
 
     a {
         color: hsl(0, 0%, 82.5%);
+        transition: 0.2s;
+
+        &:hover {
+            color: #fff;
+        }
     }
 
     p {
