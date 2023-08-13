@@ -43,15 +43,15 @@ const globalTheme = {
 };
 
 const GlobalStyle = createGlobalStyle`
+    html {
+        scroll-behavior: smooth !important;
+        scroll-margin-top: 50px;
+    }
+
     body {
         font-family: 'Source Code Pro', monospace;
-        padding-top: 25px;
         background: ${({ theme }) => theme.background};
         color: white;
-
-        @media (max-width: 750px) {
-            padding-top: 15px;
-        }
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -97,7 +97,7 @@ const GlobalStyle = createGlobalStyle`
 
 const S = {};
 S.Container = styled.div`
-    max-width: 1100px;
+    max-width: 1150px;
     padding: 0 40px;
     margin: auto;
 

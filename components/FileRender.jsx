@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
 import Head from 'next/head';
 import { getMDXComponent } from 'mdx-bundler/client';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Header from '@components/Header';
 import CodeBlock from '@components/CodeBlock';
 import Callout from '@components/Callout';
+import TableOfContents from './TableOfContent';
 
 const FileRender = (props) => {
     const { file = {}, folder } = props;
@@ -15,42 +16,60 @@ const FileRender = (props) => {
     }, [file.code]);
 
     return (
-        <S.Container>
-            <Head>
-                <link rel='canonical' href={`https://lilyscript.fr/${folder}/${file.meta?.slug}`} />
-                <meta property='og:title' content={file.meta?.title} />
-                <meta property='og:url' content={`https://lilyscript.fr/${folder}/${file.meta?.slug}`} />
-                <meta property='og:description' content={file.meta?.description} />
-                <meta name='description' content={file.meta?.description} />
-                <title>{file.meta?.title}</title>
-            </Head>
-            {file.code ? (
-                <>
-                    {file.meta && <Header data={file.meta} />}
-                    {file.code && (
-                        <S.Content>
-                            <FileContent components={{ CodeBlock, Callout }} />
-                        </S.Content>
-                    )}
-                </>
-            ) : (
-                <span>Ce contenu n&apos;existe pas</span>
-            )}
-        </S.Container>
+        <S.Wrapper>
+            <S.Container $hasTableOfContents={Boolean(file.meta?.tableOfContents)}>
+                <Head>
+                    <link rel='canonical' href={`https://lilyscript.fr/${folder}/${file.meta?.slug}`} />
+                    <meta property='og:title' content={file.meta?.title} />
+                    <meta property='og:url' content={`https://lilyscript.fr/${folder}/${file.meta?.slug}`} />
+                    <meta property='og:description' content={file.meta?.description} />
+                    <meta name='description' content={file.meta?.description} />
+                    <title>{file.meta?.title}</title>
+                </Head>
+                {file.code ? (
+                    <>
+                        {file.meta && <Header data={file.meta} />}
+                        {file.code && (
+                            <S.Content>
+                                <FileContent components={{ CodeBlock, Callout }} />
+                            </S.Content>
+                        )}
+                    </>
+                ) : (
+                    <span>Ce contenu n&apos;existe pas</span>
+                )}
+            </S.Container>
+            {file.meta?.tableOfContents && <TableOfContents data={file.meta.tableOfContents} />}
+        </S.Wrapper>
     );
 };
 
 export default FileRender;
 
 const S = {};
+S.Wrapper = styled.div`
+    display: flex;
+    gap: 50px;
+
+    @media (max-width: 1100px) {
+        padding: 0;
+        display: block;
+    }
+`;
+
 S.Container = styled.article`
-    margin: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
     max-width: 800px;
     margin-bottom: 80px;
+
+    ${({ $hasTableOfContents }) =>
+        !$hasTableOfContents &&
+        css`
+            margin: auto;
+            padding: 10px;
+        `};
 
     @media (max-width: 1100px) {
         padding: 0;
