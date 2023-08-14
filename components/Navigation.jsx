@@ -94,6 +94,7 @@ export default Navigation;
 
 const S = {};
 S.Container = styled.div`
+    z-index: 999;
     display: flex;
     align-items: center;
     width: 100%;
