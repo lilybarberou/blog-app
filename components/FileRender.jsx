@@ -6,6 +6,7 @@ import Header from '@components/Header';
 import CodeBlock from '@components/CodeBlock';
 import Callout from '@components/Callout';
 import TableOfContents from './TableOfContent';
+import RelatedArticles from './RelatedArticles';
 
 const FileRender = (props) => {
     const { file = {}, folder } = props;
@@ -31,7 +32,7 @@ const FileRender = (props) => {
                         {file.meta && <Header data={file.meta} />}
                         {file.code && (
                             <S.Content>
-                                <FileContent components={{ CodeBlock, Callout }} />
+                                <FileContent components={{ CodeBlock, Callout, RelatedArticles }} />
                             </S.Content>
                         )}
                     </>
