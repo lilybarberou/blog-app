@@ -67,8 +67,6 @@ S.Container = styled.div`
     font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     height: fit-content;
-    position: sticky;
-    top: 100px;
     align-self: flex-start;
     gap: 15px;
     max-height: 450px;
