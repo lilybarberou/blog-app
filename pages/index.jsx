@@ -6,6 +6,9 @@ import PostCard from '@components/PostCard';
 import categories from '@contexts/categories.json';
 
 const Home = ({ posts }) => {
+    // sort posts by likes
+    const sortedPosts = [...posts].sort((a, b) => b.likes - a.likes);
+
     return (
         <S.Container>
             <Head>
@@ -33,7 +36,7 @@ const Home = ({ posts }) => {
                     </S.Posts>
                     <h2>Les famous.</h2>
                     <S.Posts>
-                        {posts.map((post) => (
+                        {sortedPosts.map((post) => (
                             <PostCard key={post.slug} post={post} />
                         ))}
                     </S.Posts>
@@ -58,19 +61,11 @@ export default Home;
 export async function getStaticProps() {
     let posts = [];
 
-    const params = {
-        limit: 8,
-        folder: 'posts',
-    };
-
-    const { data } = await axios.get('files', { params });
-
+    const { data } = await axios.get('files', { params: { folder: 'posts' } });
     if (data.success) posts = data.data;
 
     return {
-        props: {
-            posts,
-        },
+        props: { posts },
         revalidate: parseInt(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
     };
 }
