@@ -71,8 +71,12 @@ S.Container = styled.div`
     top: 100px;
     align-self: flex-start;
     gap: 15px;
-    max-height: 400px;
+    max-height: 450px;
     overflow-y: auto;
+
+    &::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.primary};
+    }
 
     a {
         color: hsl(0, 0%, 82.5%);
