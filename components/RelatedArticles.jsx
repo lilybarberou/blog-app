@@ -29,9 +29,9 @@ S.Container = styled.div`
 
     p {
         font-family: 'Source Code Pro', monospace !important;
+        color: ${({ theme }) => theme.primary} !important;
+        font-size: 24px !important;
         font-weight: bold;
-        font-size: 24px;
-        color: ${({ theme }) => theme.primary};
     }
 
     a {

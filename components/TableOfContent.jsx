@@ -96,10 +96,6 @@ S.Container = styled.div`
         color: ${({ theme }) => theme.primary};
         margin-bottom: 10px;
     }
-
-    @media (max-width: 1100px) {
-        display: none;
-    }
 `;
 
 S.SubItems = styled.div`
