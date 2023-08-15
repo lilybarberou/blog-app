@@ -5,10 +5,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navigation from '@components/Navigation';
 import Footer from '@components/Footer';
 import Script from 'next/script';
+import { AppProps } from 'next/app';
 
 axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_API_URL}/`;
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
     return (
         <ThemeProvider theme={globalTheme}>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} strategy='afterInteractive' />
@@ -98,7 +99,7 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     max-width: 1150px;
     padding: 0 40px;

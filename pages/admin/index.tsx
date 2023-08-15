@@ -78,9 +78,9 @@ const Posts = (props: Props) => {
                 <meta property='og:title' content='Admin | LilyScript' />
                 <title>Admin | LilyScript</title>
             </Head>
-            <Button as={Link} href='/admin/create'>
+            <S.Button as={Link} href='/admin/create'>
                 Créer un fichier
-            </Button>
+            </S.Button>
             <div>
                 <S.Posts>
                     <h2>Les posts.</h2>
@@ -122,6 +122,7 @@ export async function getServerSideProps() {
 }
 
 const S: any = {};
+S.Button = styled(Button)``;
 S.Container = styled.div`
     > div {
         display: grid;

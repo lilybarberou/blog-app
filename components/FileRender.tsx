@@ -28,7 +28,9 @@ const FileRender = (props: Props) => {
 
     const FileContent = useMemo(() => {
         if (file.code) return getMDXComponent(file.code);
-        return <div></div>;
+        return function empty() {
+            return <div></div>;
+        };
     }, [file.code]);
 
     return (
@@ -86,7 +88,7 @@ S.Wrapper = styled.div`
     }
 `;
 
-S.Container = styled.article`
+S.Container = styled.article<{ $hasTableOfContents: boolean }>`
     display: flex;
     flex-direction: column;
     gap: 10px;

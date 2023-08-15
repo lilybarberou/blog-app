@@ -1,4 +1,4 @@
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
+import NextDocument, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 function Document() {
@@ -15,7 +15,7 @@ function Document() {
                 <meta property='og:type' content='website' />
 
                 <link rel='preconnect' href='https://fonts.googleapis.com' />
-                <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
+                <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
                 <link href='https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700;800&display=swap' rel='stylesheet' />
                 <link href='https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap' rel='stylesheet' />
             </Head>
@@ -27,7 +27,7 @@ function Document() {
     );
 }
 
-Document.getInitialProps = async (ctx) => {
+Document.getInitialProps = async (ctx: DocumentContext) => {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
