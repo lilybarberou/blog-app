@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import categories from '@contexts/categories.json';
+import { categories } from '@contexts/categories';
+import { FileMeta } from '@contexts/types';
 
-const SnippetCard = (props) => {
+const SnippetCard = (props: { snippet: FileMeta }) => {
     const { snippet } = props;
 
     return (
@@ -22,7 +23,7 @@ const SnippetCard = (props) => {
 
 export default SnippetCard;
 
-const S = {};
+const S: any = {};
 S.Container = styled(Link)`
     flex: 1;
     min-height: 80px;

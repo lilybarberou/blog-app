@@ -5,19 +5,26 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Button, InputContainer } from '@components/StyledComponents';
 import Link from 'next/link';
+import { FileMeta } from '@contexts/types';
 
-const Posts = ({ posts, snippets }) => {
+type Props = {
+    posts: FileMeta[];
+    snippets: FileMeta[];
+};
+
+const Posts = (props: Props) => {
+    const { posts, snippets } = props;
     const data = useRef({ posts, snippets });
-    const passwordRef = useRef();
+    const passwordRef = useRef<HTMLInputElement>(null);
     const init = { open: false, slug: '', folder: '' };
     const [modalData, setModalData] = useState(init);
 
     const initModal = () => setModalData(init);
 
-    const handleDelete = async (e) => {
+    const handleDelete = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const { data: res } = await axios.delete('files', { data: { slug: modalData.slug, password: passwordRef.current.value, folder: modalData.folder } });
+        const { data: res } = await axios.delete('files', { data: { slug: modalData.slug, password: passwordRef.current!.value, folder: modalData.folder } });
 
         toast(res.message, { type: res.success ? 'success' : 'error' });
         if (res.success) {
@@ -43,7 +50,7 @@ const Posts = ({ posts, snippets }) => {
         );
     };
 
-    const Item = (props) => {
+    const Item = (props: FileMeta & { folder: string }) => {
         return (
             <S.Item>
                 <span>{props.title}</span>
@@ -114,7 +121,7 @@ export async function getServerSideProps() {
     };
 }
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     > div {
         display: grid;

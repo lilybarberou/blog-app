@@ -2,9 +2,17 @@ import Head from 'next/head';
 import axios from 'axios';
 import styled from 'styled-components';
 import PostCard from '@components/PostCard';
-import categories from '@contexts/categories.json';
+import { GetStaticProps } from 'next';
+import { categories } from '@contexts/categories';
+import { FileMeta } from '@contexts/types';
 
-const Category = ({ posts, category }) => {
+type Props = {
+    posts: FileMeta[];
+    category: string;
+};
+
+const Category = (props: Props) => {
+    const { posts, category } = props;
     const categoryName = categories[category?.toUpperCase()]?.name;
 
     return (
@@ -48,10 +56,11 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps(ctx) {
+export const getStaticProps: GetStaticProps = async (ctx) => {
+    if (!ctx.params?.category) return { notFound: true };
+
     let posts,
         category = ctx.params.category;
-
     const params = {
         category,
         folder: 'posts',
@@ -65,11 +74,11 @@ export async function getStaticProps(ctx) {
             posts,
             category,
         },
-        revalidate: parseInt(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
+        revalidate: Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
     };
-}
+};
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;

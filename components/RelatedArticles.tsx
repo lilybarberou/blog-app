@@ -1,7 +1,15 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const RelatedArticles = ({ urls }) => {
+type Props = {
+    urls: {
+        text: string;
+        link: string;
+    }[];
+};
+
+const RelatedArticles = (props: Props) => {
+    const { urls } = props;
     if (!urls) return null;
 
     return (
@@ -18,7 +26,7 @@ const RelatedArticles = ({ urls }) => {
 
 export default RelatedArticles;
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;

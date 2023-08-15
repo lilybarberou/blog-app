@@ -2,8 +2,11 @@ import Head from 'next/head';
 import axios from 'axios';
 import styled from 'styled-components';
 import SnippetCard from '@components/SnippetCard';
+import { FileMeta } from '@contexts/types';
 
-const Snippets = ({ snippets }) => {
+const Snippets = (props: { snippets: FileMeta[] }) => {
+    const { snippets } = props;
+
     return (
         <S.Container>
             <Head>
@@ -48,11 +51,11 @@ export async function getStaticProps() {
         props: {
             snippets,
         },
-        revalidate: parseInt(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
+        revalidate: Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
     };
 }
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;

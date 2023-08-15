@@ -8,15 +8,21 @@ import Callout from '@components/Callout';
 import TableOfContents from './TableOfContent';
 import RelatedArticles from './RelatedArticles';
 import LikeButton from './LikeButton';
+import { File } from '@contexts/types';
 
-const FileRender = (props) => {
-    const { file = {}, folder } = props;
+type Props = {
+    file: File;
+    folder: string;
+};
+
+const FileRender = (props: Props) => {
+    const { file, folder } = props;
     const [hasLiked, setHasLiked] = useState(false);
     const [nbLikes, setNbLikes] = useState(file.meta?.likes);
 
     // check in localstorage if user has already liked the file
     useEffect(() => {
-        const likedArr = localStorage.getItem('liked') ? JSON.parse(localStorage.getItem('liked')) : [];
+        const likedArr = localStorage.getItem('liked') ? JSON.parse(localStorage.getItem('liked')!) : [];
         setHasLiked(likedArr.includes(file.meta?.slug));
     }, [file.meta?.slug, setHasLiked]);
 
@@ -69,7 +75,7 @@ const FileRender = (props) => {
 
 export default FileRender;
 
-const S = {};
+const S: any = {};
 S.Wrapper = styled.div`
     display: flex;
     gap: 50px;

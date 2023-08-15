@@ -1,8 +1,12 @@
+import { File } from '@contexts/types';
 import CreateFile from '@views/CreateFile';
 import axios from 'axios';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
-const EditFile = ({ file }) => {
+const EditFile = (props: { file: File }) => {
+    const { file } = props;
+
     return (
         <>
             <Head>
@@ -13,9 +17,10 @@ const EditFile = ({ file }) => {
     );
 };
 
-export async function getServerSideProps(ctx) {
-    let file = {};
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    if (!ctx.params) return { notFound: true };
 
+    let file = {};
     const params = {
         folder: 'posts',
         originalFile: true,
@@ -29,6 +34,6 @@ export async function getServerSideProps(ctx) {
             file,
         },
     };
-}
+};
 
 export default EditFile;

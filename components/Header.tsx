@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import categories from '@contexts/categories.json';
+import { categories } from '@contexts/categories';
+import { FileMeta } from '@contexts/types';
 
-const Header = (props) => {
+const Header = (props: { data: FileMeta }) => {
     const { data } = props;
 
     return (
@@ -21,7 +22,7 @@ const Header = (props) => {
 
 export default Header;
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;

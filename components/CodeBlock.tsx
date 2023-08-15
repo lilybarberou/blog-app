@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import darcula from 'react-syntax-highlighter/dist/cjs/styles/prism/darcula';
 
-const CodeBlock = (props) => {
+type Props = {
+    filename?: string;
+    code: string;
+};
+
+const CodeBlock = (props: Props) => {
     const { filename, code } = props;
 
     return (
@@ -17,7 +22,7 @@ const CodeBlock = (props) => {
 
 export default CodeBlock;
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;

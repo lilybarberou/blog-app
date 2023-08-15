@@ -3,24 +3,25 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
+import { File, PlaygroundRef } from '@contexts/types';
+import { getFormData } from '@contexts/Utils';
 import { SandpackCodeEditor, SandpackProvider, useActiveCode } from '@codesandbox/sandpack-react';
 import { Button, InputContainer } from '@components/StyledComponents';
-import { getFormData } from '@contexts/Utils';
 import Back from '@components/Back';
 
-const CreateFile = (props) => {
-    const { edit = false, data = {} } = props;
-    const playgroundRef = useRef();
+const CreateFile = (props: { edit?: boolean; data?: File }) => {
+    const { edit = false, data } = props;
+    const playgroundRef = useRef<PlaygroundRef>(null);
     const router = useRouter();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const formData = getFormData('#form');
-        const code = playgroundRef.current.getCode();
+        const code = playgroundRef.current!.getCode();
 
         let old_slug;
-        if (edit && formData.slug !== data.meta.slug) old_slug = data.meta.slug;
+        if (edit && formData.slug !== data?.meta.slug) old_slug = data?.meta.slug;
 
         let res;
         if (edit) res = await axios.put('files', { ...formData, code, old_slug, folder: 'posts' });
@@ -33,7 +34,7 @@ const CreateFile = (props) => {
     const files = {
         '/index.js': {
             code: edit
-                ? data.originalFile
+                ? data?.originalFile || ''
                 : `---
 title:
 description:
@@ -64,7 +65,7 @@ categories: ['REACT']
 
 export default CreateFile;
 
-const Playground = forwardRef((props, ref) => {
+const Playground = forwardRef<PlaygroundRef>((props, ref) => {
     const { code } = useActiveCode();
 
     // pass code to parent
@@ -77,7 +78,7 @@ const Playground = forwardRef((props, ref) => {
 
 Playground.displayName = 'Playground';
 
-const S = {};
+const S: any = {};
 S.Container = styled.form`
     display: flex;
     flex-direction: column;

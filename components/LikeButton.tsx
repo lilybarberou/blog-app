@@ -1,13 +1,23 @@
-import styled, { css } from 'styled-components';
+import styled, { CSSProperties, css } from 'styled-components';
 import axios from 'axios';
+import { File } from '@contexts/types';
 
-const LikeButton = (props) => {
+type Props = {
+    hasLiked: boolean;
+    setHasLiked: React.Dispatch<React.SetStateAction<boolean>>;
+    nbLikes: number;
+    setNbLikes: React.Dispatch<React.SetStateAction<number>>;
+    style?: CSSProperties;
+    file: File;
+};
+
+const LikeButton = (props: Props) => {
     const { hasLiked, setHasLiked, nbLikes, setNbLikes, style, file } = props;
 
     // add like to file
     const addLike = async () => {
         // add like in localstorage
-        const liked = localStorage.getItem('liked') ? JSON.parse(localStorage.getItem('liked')) : [];
+        const liked = localStorage.getItem('liked') ? JSON.parse(localStorage.getItem('liked')!) : [];
         liked.push(file.meta?.slug);
         localStorage.setItem('liked', JSON.stringify(liked));
 
@@ -35,8 +45,8 @@ const LikeButton = (props) => {
 
 export default LikeButton;
 
-const S = {};
-S.Like = styled.div`
+const S: any = {};
+S.Like = styled.div<{ $active: boolean }>`
     display: flex;
     align-items: center;
     gap: 10px;

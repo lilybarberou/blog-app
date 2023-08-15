@@ -2,8 +2,11 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import axios from 'axios';
 import PostCard from '@components/PostCard';
+import { FileMeta } from '@contexts/types';
 
-const Posts = ({ posts }) => {
+const Posts = (props: { posts: FileMeta[] }) => {
+    const { posts } = props;
+
     return (
         <S.Container>
             <Head>
@@ -34,7 +37,6 @@ export default Posts;
 
 export async function getStaticProps() {
     let posts = [];
-
     const params = {
         limit: 20,
         folder: 'posts',
@@ -45,14 +47,12 @@ export async function getStaticProps() {
     if (data.success) posts = data.data;
 
     return {
-        props: {
-            posts,
-        },
-        revalidate: parseInt(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
+        props: { posts },
+        revalidate: Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
     };
 }
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;

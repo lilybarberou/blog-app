@@ -1,9 +1,11 @@
 import axios from 'axios';
-import categories from '@contexts/categories.json';
+import { GetServerSideProps } from 'next';
+import { categories } from '@contexts/categories';
+import { SitemapFile } from '@contexts/types';
 
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN;
 
-function generateSiteMap(categories, posts, snippets) {
+function generateSiteMap(categories: string[], posts: SitemapFile[], snippets: SitemapFile[]) {
     return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
@@ -50,7 +52,7 @@ function generateSiteMap(categories, posts, snippets) {
 
 function SiteMap() {}
 
-export async function getServerSideProps({ res }) {
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     const { data } = await axios.get('files/paths', { params: { lastMod: true } });
 
     const categoriesPaths = Object.keys(categories).map((cat) => cat.toLowerCase());
@@ -67,6 +69,6 @@ export async function getServerSideProps({ res }) {
     return {
         props: {},
     };
-}
+};
 
 export default SiteMap;

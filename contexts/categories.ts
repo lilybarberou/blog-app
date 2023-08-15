@@ -1,4 +1,6 @@
-{
+import { Categories } from "./types";
+
+export const categories: Categories = {
     "HTML": {
         "color": "#a4352e",
         "name": "Html"

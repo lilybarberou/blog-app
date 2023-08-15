@@ -3,9 +3,11 @@ import Link from 'next/link';
 import axios from 'axios';
 import styled from 'styled-components';
 import PostCard from '@components/PostCard';
-import categories from '@contexts/categories.json';
+import { categories } from '@contexts/categories';
+import { FileMeta } from '@contexts/types';
 
-const Home = ({ posts }) => {
+const Home = (props: { posts: FileMeta[] }) => {
+    const { posts } = props;
     // sort posts by likes
     const sortedPosts = [...posts].sort((a, b) => b.likes - a.likes);
 
@@ -66,11 +68,11 @@ export async function getStaticProps() {
 
     return {
         props: { posts },
-        revalidate: parseInt(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
+        revalidate: Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
     };
 }
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;

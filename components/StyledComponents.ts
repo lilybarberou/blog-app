@@ -12,7 +12,7 @@ export const Button = styled.button`
     cursor: pointer;
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{width?: string}>`
     display: flex;
     flex-direction: column;
 

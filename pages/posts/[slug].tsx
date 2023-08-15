@@ -1,13 +1,18 @@
 import axios from 'axios';
 import FileRender from '@components/FileRender';
+import { File } from '@contexts/types';
+import { GetStaticProps } from 'next';
 
-const Post = ({ file }) => <FileRender file={file} folder='posts' />;
+const Post = (props: { file: File }) => {
+    const { file } = props;
+    return <FileRender file={file} folder='posts' />;
+};
 
 export default Post;
 
 export async function getStaticPaths() {
     const { data } = await axios.get('files/paths', { params: { folder: 'posts' } });
-    const paths = data.data.map((slug) => ({ params: { slug } }));
+    const paths = data.data.map((slug: string) => ({ params: { slug } }));
 
     return {
         paths,
@@ -15,9 +20,10 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps(ctx) {
-    let file = {};
+export const getStaticProps: GetStaticProps = async (ctx) => {
+    if (!ctx.params) return { notFound: true };
 
+    let file = {};
     const params = {
         folder: 'posts',
     };
@@ -29,6 +35,6 @@ export async function getStaticProps(ctx) {
         props: {
             file,
         },
-        revalidate: parseInt(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
+        revalidate: Number(process.env.NEXT_PUBLIC_REVALIDATE_TIME),
     };
-}
+};

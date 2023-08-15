@@ -1,13 +1,20 @@
+import { TableOfContents } from '@contexts/types';
 import Link from 'next/link';
 import { Fragment, useEffect } from 'react';
 import styled from 'styled-components';
 
-const TableOfContents = ({ data }) => {
+type Props = {
+    data: TableOfContents;
+};
+
+const TableOfContents = (props: Props) => {
+    const { data } = props;
+
     useEffect(() => {
         // on scroll change the active link
         const handleScroll = () => {
             const links = document.querySelectorAll('#table-of-contents a');
-            const sections = document.querySelectorAll('h2, h3');
+            const sections = document.querySelectorAll('h2, h3') as NodeListOf<HTMLHeadingElement>;
 
             const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -57,7 +64,7 @@ const TableOfContents = ({ data }) => {
 
 export default TableOfContents;
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     display: flex;
     flex-direction: column;

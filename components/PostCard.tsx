@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import categories from '@contexts/categories.json';
+import { categories } from '@contexts/categories';
+import { FileMeta } from '@contexts/types';
 
-const PostCard = (props) => {
+const PostCard = (props: { post: FileMeta }) => {
     const { post } = props;
 
     return (
@@ -28,7 +29,7 @@ const PostCard = (props) => {
 
 export default PostCard;
 
-const S = {};
+const S: any = {};
 S.Container = styled(Link)`
     padding: 15px;
     height: 188px;

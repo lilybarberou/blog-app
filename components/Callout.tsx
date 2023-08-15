@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const Callout = (props) => {
+type CalloutType = 'pin' | 'help' | 'error' | 'warning' | 'success';
+
+const Callout = (props: { type: CalloutType; text: string | TrustedHTML }) => {
     const { type, text } = props;
 
     const emotes = {
@@ -21,8 +23,8 @@ const Callout = (props) => {
 
 export default Callout;
 
-const S = {};
-S.Container = styled.div`
+const S: any = {};
+S.Container = styled.div<{ type: CalloutType }>`
     display: flex;
     gap: 15px;
     background: ${({ type }) => {

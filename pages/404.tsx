@@ -6,7 +6,7 @@ const NotFound = () => {
 
 export default NotFound;
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     display: flex;
 `;

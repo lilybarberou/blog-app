@@ -1,16 +1,19 @@
+import { useRef } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import categories from '@contexts/categories.json';
 import useModal from '@contexts/useModal';
+import { categories } from '@contexts/categories';
 import ModalSearch from './ModalSearch';
 
 const Navigation = () => {
     const { isOpen, open, close } = useModal(['search']);
+    const mobileMenu = useRef<HTMLDivElement>(null);
 
     const handleMobileMenu = () => {
-        const el = document.querySelector('#mobile-menu');
-        el.classList.toggle('active');
-        document.body.style.overflowY = el.classList.contains('active') ? 'hidden' : 'unset';
+        if (!mobileMenu.current) return;
+
+        mobileMenu.current.classList.toggle('active');
+        document.body.style.overflowY = mobileMenu.current.classList.contains('active') ? 'hidden' : 'unset';
     };
 
     return (
@@ -53,7 +56,7 @@ const Navigation = () => {
                         <path d='M3 5h18M3 12h18M3 19h18' stroke='#fff' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'></path>
                     </svg>
                 </S.Icon>
-                <S.MobileMenuContent id='mobile-menu'>
+                <S.MobileMenuContent ref={mobileMenu}>
                     <S.MobileMenuHeader>
                         <S.Logo onClick={handleMobileMenu} href='/'>
                             LilyScript
@@ -92,7 +95,7 @@ const Navigation = () => {
 
 export default Navigation;
 
-const S = {};
+const S: any = {};
 S.Container = styled.div`
     z-index: 999;
     display: flex;

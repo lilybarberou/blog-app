@@ -1,18 +1,22 @@
-import axios from 'axios';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
+import axios from 'axios';
+import { FileMeta } from '@contexts/types';
 
-const ModalSearch = ({ onClose }) => {
-    const [results, setResults] = useState({ initial: [], filtered: [] });
+type FileMetaWithType = FileMeta & { type: 'posts' | 'snippets' };
+
+const ModalSearch = (props: { onClose: () => void }) => {
+    const { onClose } = props;
+    const [results, setResults] = useState<{ initial: FileMetaWithType[]; filtered: FileMetaWithType[] }>({ initial: [], filtered: [] });
 
     // get all files
     useEffect(() => {
         const getFiles = async () => {
             const { data } = await axios.get('files');
             const arr = [
-                ...data.data.posts.map((post) => ({ ...post, type: 'posts' })),
-                ...data.data.snippets.map((snippet) => ({ ...snippet, type: 'snippets' })),
+                ...data.data.posts.map((post: File) => ({ ...post, type: 'posts' })),
+                ...data.data.snippets.map((snippet: File) => ({ ...snippet, type: 'snippets' })),
             ];
 
             setResults({ initial: arr, filtered: arr });
@@ -22,7 +26,7 @@ const ModalSearch = ({ onClose }) => {
     }, []);
 
     // handle search change
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
         if (!value) return setResults((prev) => ({ ...prev, filtered: prev.initial }));
 
@@ -62,7 +66,7 @@ const ModalSearch = ({ onClose }) => {
 
 export default ModalSearch;
 
-const S = {};
+const S: any = {};
 S.Modal = styled.form`
     z-index: 100;
     border: 1px solid #fff;
