@@ -50,17 +50,17 @@ S.Container = styled(Link)`
     &:hover > div {
         transform: translateY(calc(-100% - 15px));
     }
-    & .date {
+    .date {
         font-size: 13px;
         color: ${({ theme }) => theme.grey};
     }
-    & .title {
+    .title {
         margin-top: 20px;
         align-self: center;
         font-size: 20px;
         text-align: center;
     }
-    & p {
+    p {
         font-size: 14px;
         text-align: center;
         overflow: hidden;
@@ -68,7 +68,7 @@ S.Container = styled(Link)`
         -webkit-line-clamp: 9;
         -webkit-box-orient: vertical;
     }
-    & .more {
+    .more {
         align-self: flex-end;
         margin-top: auto;
         font-size: 14px;
@@ -85,11 +85,11 @@ S.Container = styled(Link)`
         &:hover > div {
             transform: unset;
         }
-        & p {
+        p {
             font-weight: lighter;
             -webkit-line-clamp: 3;
         }
-        & .more {
+        .more {
             margin-top: 20px;
         }
     }

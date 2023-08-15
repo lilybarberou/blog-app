@@ -78,11 +78,11 @@ S.Container = styled.div`
     flex-direction: column;
     gap: 40px;
 
-    & h1 {
+    h1 {
         font-size: 28px;
     }
 
-    & h2 {
+    h2 {
         color: ${({ theme }) => theme.primary};
         margin-bottom: 30px;
         font-size: 20px;

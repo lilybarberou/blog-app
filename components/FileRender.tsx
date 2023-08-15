@@ -202,10 +202,10 @@ S.Content = styled.div`
             font-size: 15px;
         }
 
-        & h2 {
+        h2 {
             font-size: 23px;
         }
-        & h3 {
+        h3 {
             font-size: 19px;
         }
     }

@@ -32,12 +32,12 @@ S.Container = styled(Link)`
     overflow: hidden;
     position: relative;
 
-    & .date {
+    .date {
         font-size: 13px;
         color: ${({ theme }) => theme.grey};
         margin-left: auto;
     }
-    & .title {
+    .title {
         z-index: 10;
         margin-top: 10px;
         align-self: center;
