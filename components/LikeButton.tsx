@@ -27,6 +27,9 @@ const LikeButton = (props: Props) => {
         // update states
         setHasLiked(true);
         setNbLikes(nbLikes + 1);
+
+        // revalidate to update cache for like number
+        fetch(`/api/revalidate?path=${location.pathname}`);
     };
 
     return (
