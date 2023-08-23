@@ -1,6 +1,7 @@
 {
     "short_name": "LilyScript",
     "name": "LilyScript | Blog de dev",
+    "description": "Le blog de Lily, c'est comme un café (d'idées) sur la programmation - sauf que vous n'aurez pas à payer pour un café décevant.",
     "icons": [
         {
             "src": "favicon-16x16.png",
