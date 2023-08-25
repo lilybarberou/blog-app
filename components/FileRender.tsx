@@ -40,6 +40,7 @@ const FileRender = (props: Props) => {
                     <link rel='canonical' href={`https://lilyscript.fr/${folder}/${file.meta?.slug}`} />
                     <meta property='og:title' content={`${file.meta?.title} | LilyScript`} />
                     <meta property='og:url' content={`https://lilyscript.fr/${folder}/${file.meta?.slug}`} />
+                    <meta property='og:image' content={`${process.env.NEXT_PUBLIC_SCREENSHOT_LINK}-${folder}-${file.meta?.slug.replace(/\//g, '-')}.png`} />
                     <meta property='og:description' content={file.meta?.description} />
                     <meta name='description' content={file.meta?.description} />
                     <title>{file.meta?.title} | LilyScript</title>

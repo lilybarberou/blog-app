@@ -13,6 +13,7 @@ const Snippets = (props: { snippets: FileMeta[] }) => {
                 <link rel='canonical' href='https://lilyscript.fr/snippets' />
                 <meta property='og:title' content='Les snippets | LilyScript' />
                 <meta property='og:url' content='https://lilyscript.fr/snippets' />
+                <meta property='og:image' content={`${process.env.NEXT_PUBLIC_SCREENSHOT_LINK}-snippets.png`} />
                 <meta
                     property='og:description'
                     content="Une liste de snippets, des extraits de code pratiques dont on se sert beaucoup, mais qu'on oublie aussi beaucoup."

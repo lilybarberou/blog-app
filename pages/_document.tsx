@@ -11,7 +11,6 @@ function Document() {
                 <link rel='icon' href='/favicon.ico' />
                 <link rel='apple-touch-icon' href='./apple-touch-icon.png' />
 
-                <meta property='og:image' content='https://raw.githubusercontent.com/Nahay/Assets/master/Blog/banner.png' />
                 <meta property='og:type' content='website' />
 
                 <link rel='preconnect' href='https://fonts.googleapis.com' />

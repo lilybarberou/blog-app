@@ -21,6 +21,7 @@ const Category = (props: Props) => {
                 <link rel='canonical' href={`https://lilyscript.fr/posts/category/${category}`} />
                 <meta property='og:title' content={`${categoryName} | LilyScript`} />
                 <meta property='og:url' content={`https://lilyscript.fr/posts/category/${category}`} />
+                <meta property='og:image' content={`${process.env.NEXT_PUBLIC_SCREENSHOT_LINK}-posts-category-${category}.png`} />
                 <meta
                     property='og:description'
                     content={`Liste des posts ${categoryName}. Chaque nouveau post est une occasion d'apprendre et de devenir un développeur encore plus badass.`}

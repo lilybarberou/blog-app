@@ -13,6 +13,7 @@ const Posts = (props: { posts: FileMeta[] }) => {
                 <link rel='canonical' href='https://lilyscript.fr/posts' />
                 <meta property='og:title' content='Les posts | LilyScript' />
                 <meta property='og:url' content='https://lilyscript.fr/posts' />
+                <meta property='og:image' content={`${process.env.NEXT_PUBLIC_SCREENSHOT_LINK}-posts.png`} />
                 <meta
                     property='og:description'
                     content="Découvrez les derniers posts de Lily. Chaque nouveau post est une occasion d'apprendre et de devenir un développeur encore plus badass."

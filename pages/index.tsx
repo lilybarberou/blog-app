@@ -17,6 +17,7 @@ const Home = (props: { posts: FileMeta[] }) => {
                 <link rel='canonical' href='https://lilyscript.fr/' />
                 <meta property='og:title' content='LilyScript | Un blog de dev' />
                 <meta property='og:url' content='https://lilyscript.fr/' />
+                <meta property='og:image' content={`${process.env.NEXT_PUBLIC_SCREENSHOT_LINK}.png`} />
                 <meta
                     property='og:description'
                     content="Le blog de Lily, c'est comme un café (d'idées) sur la programmation - sauf que vous n'aurez pas à payer pour un café décevant."
