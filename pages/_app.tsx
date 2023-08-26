@@ -1,13 +1,32 @@
 import axios from 'axios';
+import { AppProps } from 'next/app';
+import Script from 'next/script';
+import localFont from 'next/font/local';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navigation from '@components/Navigation';
 import Footer from '@components/Footer';
-import Script from 'next/script';
-import { AppProps } from 'next/app';
 
 axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_API_URL}/`;
+
+const sourceCodePro = localFont({
+    src: [
+        { path: '../public/fonts/SourceCodePro/SourceCodePro-Regular.ttf', weight: '400' },
+        { path: '../public/fonts/SourceCodePro/SourceCodePro-Medium.ttf', weight: '500' },
+        { path: '../public/fonts/SourceCodePro/SourceCodePro-Bold.ttf', weight: '700' },
+        { path: '../public/fonts/SourceCodePro/SourceCodePro-ExtraBold.ttf', weight: '800' },
+    ],
+    variable: '--font-source-code-pro',
+});
+const dmSans = localFont({
+    src: [
+        { path: '../public/fonts/DMSans/DMSans-Regular.ttf', weight: '400' },
+        { path: '../public/fonts/DMSans/DMSans-Medium.ttf', weight: '500' },
+        { path: '../public/fonts/DMSans/DMSans-Bold.ttf', weight: '700' },
+    ],
+    variable: '--font-dm-sans',
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -22,13 +41,15 @@ function MyApp({ Component, pageProps }: AppProps) {
                     gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}}');
                 `}
             </Script>
-            <ToastContainer theme='dark' />
-            <GlobalStyle />
-            <S.Container>
-                <Navigation />
-                <Component {...pageProps} />
-            </S.Container>
-            <Footer />
+            <main className={`${sourceCodePro.className} ${sourceCodePro.variable} ${dmSans.variable}`}>
+                <ToastContainer theme='dark' />
+                <GlobalStyle />
+                <S.Container>
+                    <Navigation />
+                    <Component {...pageProps} />
+                </S.Container>
+                <Footer />
+            </main>
         </ThemeProvider>
     );
 }
@@ -53,7 +74,6 @@ const GlobalStyle = createGlobalStyle`
     }
     
     body {
-        font-family: 'Source Code Pro', monospace;
         background: ${({ theme }) => theme.background};
         color: white;
     }

@@ -71,7 +71,7 @@ S.Container = styled.div`
     border-right: 3px solid ${({ theme }) => theme.primary};
     padding: 15px;
     padding-top: 5px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-dm-sans), sans-serif;
     font-size: 16px;
     height: fit-content;
     align-self: flex-start;
@@ -97,7 +97,7 @@ S.Container = styled.div`
     }
 
     p {
-        font-family: 'Source Code Pro', monospace;
+        font-family: var(--font-source-code-pro), monospace;
         font-weight: bold;
         font-size: 24px;
         color: ${({ theme }) => theme.primary};

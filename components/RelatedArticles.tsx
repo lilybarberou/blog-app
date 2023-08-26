@@ -36,14 +36,14 @@ S.Container = styled.div`
     padding: 10px 0 15px 25px;
 
     p {
-        font-family: 'Source Code Pro', monospace !important;
+        font-family: var(--font-source-code-pro), monospace !important;
         color: ${({ theme }) => theme.primary} !important;
         font-size: 24px !important;
         font-weight: bold !important;
     }
 
     a {
-        font-family: 'DM Sans', sans-serif;
+        font-family: var(--font-dm-sans), sans-serif;
         font-size: 17px;
     }
 `;

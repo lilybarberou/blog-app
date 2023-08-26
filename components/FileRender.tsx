@@ -124,7 +124,7 @@ S.Content = styled.div`
     ul,
     ol,
     u {
-        font-family: 'DM Sans', sans-serif;
+        font-family: var(--font-dm-sans), sans-serif;
         font-size: 16px;
         font-weight: 300;
         line-height: 1.5;
