@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { AppProps } from 'next/app';
 import Script from 'next/script';
-import localFont from 'next/font/local';
+import { Source_Code_Pro, DM_Sans } from 'next/font/google';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,22 +10,16 @@ import Footer from '@components/Footer';
 
 axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_API_URL}/`;
 
-const sourceCodePro = localFont({
-    src: [
-        { path: '../public/fonts/SourceCodePro/SourceCodePro-Regular.ttf', weight: '400' },
-        { path: '../public/fonts/SourceCodePro/SourceCodePro-Medium.ttf', weight: '500' },
-        { path: '../public/fonts/SourceCodePro/SourceCodePro-Bold.ttf', weight: '700' },
-        { path: '../public/fonts/SourceCodePro/SourceCodePro-ExtraBold.ttf', weight: '800' },
-    ],
+const sourceCodePro = Source_Code_Pro({
+    weight: ['400', '500', '700', '800'],
     variable: '--font-source-code-pro',
+    subsets: ['latin'],
 });
-const dmSans = localFont({
-    src: [
-        { path: '../public/fonts/DMSans/DMSans-Regular.ttf', weight: '400' },
-        { path: '../public/fonts/DMSans/DMSans-Medium.ttf', weight: '500' },
-        { path: '../public/fonts/DMSans/DMSans-Bold.ttf', weight: '700' },
-    ],
+
+const dmSans = DM_Sans({
+    weight: ['400', '500', '700'],
     variable: '--font-dm-sans',
+    subsets: ['latin'],
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
